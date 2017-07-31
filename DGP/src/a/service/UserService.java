@@ -20,4 +20,19 @@ public class UserService {
 		return false;
 	}
 	
+	public String getUserNickName() {
+		return UserInfoDao.getUser().getNick_name();
+	}
+	
+	public int getUserLevel() {
+		double xp=UserInfoDao.getUser().getXp();
+		
+		int level=(int)xp/1000;
+		return level;
+	}
+	
+	public int Userintegral() {
+		return UserInfoDao.getUser().getIntegral();
+	}
+	
 }

@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import a.service.UserService;
@@ -25,7 +26,7 @@ public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField textField_1 ;
 
 	/**
 	 * Launch the application.
@@ -69,9 +70,10 @@ public class Login extends JFrame {
 					UserService user=new UserService();
 					boolean isUser=user.login(username,password);
 					if(!isUser) {
-						JOptionPane.showConfirmDialog(null, "账号或密码错误","标题",JOptionPane.YES_NO_OPTION);
+						JOptionPane.showMessageDialog(null, "账号或者密码错误", "警告", JOptionPane.ERROR_MESSAGE);
 					}else {
 						close();
+						new GameMain();
 					}
 					
 				}
@@ -91,7 +93,7 @@ public class Login extends JFrame {
 		textField = new JTextField();
 		textField.setColumns(10);
 		
-		textField_1 = new JTextField();
+		textField_1 = new JPasswordField();
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("\u8D26\u53F7\uFF1A");

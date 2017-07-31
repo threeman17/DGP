@@ -69,7 +69,7 @@ public class GameMain extends JFrame {
 			};
 		});
 		
-//		用户名label
+		//用户名label
 		JLabel username=new JLabel(userservice.getUserNickName(),JLabel.CENTER);
 		username.setFont(new Font("微软雅黑", 0, 24));
 		username.setForeground(Color.cyan);
@@ -81,7 +81,7 @@ public class GameMain extends JFrame {
 		Font lae=new Font("微软雅黑", 0, 14);
 		
 		//等级label
-		JLabel level=new JLabel(userservice.getUserLevel()+"",JLabel.CENTER);
+		JLabel level=new JLabel("LV"+userservice.getUserLevel(),JLabel.CENTER);
 		level.setFont(lae);
 		level.setForeground(Color.WHITE);
 		level.setSize(50, 20);
@@ -97,7 +97,5 @@ public class GameMain extends JFrame {
 		integral.setLocation(601, 172);
 		bg.add(integral);
 	};
-	public static void main(String[] args) {
-		new GameMain();
-	}
+	
 }

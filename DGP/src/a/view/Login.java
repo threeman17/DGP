@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import a.service.UserService;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -13,6 +16,8 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 
@@ -58,7 +63,16 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("\u767B\u5F55");
 		btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
+					String username=textField.getText().trim();
+					String password=textField_1.getText().trim();
 					
+					UserService user=new UserService();
+					boolean isUser=user.login(username,password);
+					if(!isUser) {
+						JOptionPane.showConfirmDialog(null, "账号或密码错误","标题",JOptionPane.YES_NO_OPTION);
+					}else {
+						close();
+					}
 					
 				}
 		});
@@ -124,5 +138,9 @@ public class Login extends JFrame {
 					.addGap(44))
 		);
 		panel.setLayout(gl_panel);
+	}
+	
+	public void close() {
+		this.dispose();
 	}
 }

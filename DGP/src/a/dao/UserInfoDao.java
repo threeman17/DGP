@@ -10,16 +10,16 @@ import a.utils.DataSourceUtils;
 
 public class UserInfoDao {
 	
-	static UserInfo user;
-	//µÇÂ½
+	static private UserInfo user;
+	//ï¿½ï¿½Â½
 		public static UserInfo login(String account,String pass_word) throws SQLException{
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
-			String sql="select * from userinfo where account=?,pass_word=?";
+			String sql="select * from userinfo where account=? and pass_word=?";
 			user=qr.query(sql, new BeanHandler<UserInfo>(UserInfo.class), account,pass_word);
 			return user;
 		}
 		
-	//×¢²á
+	//×¢ï¿½ï¿½
 		public static void register(String account,String pass_word,String nick_name){
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
 			String sql="insert into userinfo set account=?,pass_word=?,nick_name=?";
@@ -29,7 +29,7 @@ public class UserInfoDao {
 				e.printStackTrace();
 			}
 		}
-		//²éÑ¯ÕËºÅÐÅÏ¢
+		//ï¿½ï¿½Ñ¯ï¿½Ëºï¿½ï¿½ï¿½Ï¢
 		public static UserInfo seluser(String account) throws SQLException{
 			UserInfo user=new UserInfo();
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
@@ -37,7 +37,7 @@ public class UserInfoDao {
 			user=qr.query(sql, new BeanHandler<UserInfo>(UserInfo.class),account);
 			return user;
 		}
-		//¸üÐÂÓÃ»§»ý·Ö,xp
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½,xp
 		public static void updsuer(String account,int integral,double xp){
 //			UserInfo user=new UserInfo();
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
@@ -47,5 +47,9 @@ public class UserInfoDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+		}
+		
+		public  static  UserInfo getUser() {
+			return user;
 		}
 }

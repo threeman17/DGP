@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class register extends JFrame {
+public class Register extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -29,7 +29,7 @@ public class register extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					register frame = new register();
+					Register frame = new Register();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,8 +41,8 @@ public class register extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public register() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(register.class.getResource("/1.jpg")));
+	public Register() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Register.class.getResource("/1.jpg")));
 		setTitle("\u5806\u7CD6\u6E38\u620F\u5E73\u53F0--\u6CE8\u518C");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -68,7 +68,7 @@ public class register extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();
-				new login().setVisible(true);
+				new Login().setVisible(true);
 			}
 			private void closeThis() {
 				setVisible(false);

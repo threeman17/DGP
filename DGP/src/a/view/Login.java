@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Toolkit;
 
-public class login extends JFrame {
+public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -29,7 +29,7 @@ public class login extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					login frame = new login();
+					Login frame = new Login();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,8 +41,8 @@ public class login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public login() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(login.class.getResource("/1.jpg")));
+	public Login() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/1.jpg")));
 		setTitle("\u5806\u7CD6\u6E38\u620F\u5E73\u53F0--\u767B\u9646");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -66,7 +66,7 @@ public class login extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
-				new register().setVisible(true);
+				new Register().setVisible(true);
 			}
 			private void closeThis() {
 				setVisible(false);

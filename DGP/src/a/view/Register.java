@@ -4,10 +4,17 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
+
+import a.service.UserInfoService;
+import a.service.UserInfoService;
+
 import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 
@@ -20,7 +27,7 @@ public class Register extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
+	private JPasswordField textField_2;
 
 	/**
 	 * Launch the application.
@@ -59,6 +66,21 @@ public class Register extends JFrame {
 		JButton btnNewButton = new JButton("\u6CE8\u518C");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String account=textField.getText().trim();
+				String nickname=textField_1.getText().trim();
+				String password=textField_2.getText().trim();
+				
+				UserInfoService userService=new UserInfoService();
+				boolean isUserExist=userService.isUserExist(account);
+				System.out.println(isUserExist);
+				
+				if(!isUserExist) {
+					userService.register(account, nickname, password);
+					close();
+					new Login().setVisible(true);;
+				}else {
+					JOptionPane.showMessageDialog(null, "用户名存在", "警告", JOptionPane.ERROR_MESSAGE);
+				}
 				
 			}
 		});
@@ -68,12 +90,10 @@ public class Register extends JFrame {
 		JButton btnNewButton_1 = new JButton("\u767B\u5F55");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				closeThis();
+				close();
 				new Login().setVisible(true);
 			}
-			private void closeThis() {
-				setVisible(false);
-			}
+			
 		});
 		btnNewButton_1.setBounds(247, 199, 93, 23);
 		panel.add(btnNewButton_1);
@@ -103,10 +123,12 @@ public class Register extends JFrame {
 		lblNewLabel_1.setBounds(31, 130, 107, 32);
 		panel.add(lblNewLabel_1);
 		
-		textField_2 = new JTextField();
+		textField_2 = new JPasswordField();
 		textField_2.setBounds(162, 133, 200, 32);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 	}
-	
+	public void close() {
+		this.dispose();
+	}
 }

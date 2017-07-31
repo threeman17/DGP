@@ -15,6 +15,7 @@ public class Goods {
 		public int goods_price;
 		public double xp_gain_factory;
 		public double integral_gain_factor;
+		
 		public String getGoods_name() {
 			return goods_name;
 		}

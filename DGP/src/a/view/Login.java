@@ -4,7 +4,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
+
+import a.service.UserInfoService;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -13,6 +17,8 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 
@@ -20,7 +26,7 @@ public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField textField_1 ;
 
 	/**
 	 * Launch the application.
@@ -58,7 +64,17 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("\u767B\u5F55");
 		btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
+					String username=textField.getText().trim();
+					String password=textField_1.getText().trim();
 					
+					UserInfoService user=new UserInfoService();
+					boolean isUser=user.login(username,password);
+					if(!isUser) {
+						JOptionPane.showMessageDialog(null, "账号或者密码错误", "警告", JOptionPane.ERROR_MESSAGE);
+					}else {
+						close();
+						new GameMain();
+					}
 					
 				}
 		});
@@ -66,18 +82,16 @@ public class Login extends JFrame {
 		JButton btnNewButton_1 = new JButton("\u6CE8\u518C");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				closeThis();
+				close();
 				new Register().setVisible(true);
 			}
-			private void closeThis() {
-				setVisible(false);
-			}
+			
 		});
 		
 		textField = new JTextField();
 		textField.setColumns(10);
 		
-		textField_1 = new JTextField();
+		textField_1 = new JPasswordField();
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("\u8D26\u53F7\uFF1A");
@@ -124,5 +138,9 @@ public class Login extends JFrame {
 					.addGap(44))
 		);
 		panel.setLayout(gl_panel);
+	}
+	
+	public void close() {
+		this.dispose();
 	}
 }

@@ -46,6 +46,7 @@ public class Register extends JFrame {
 		setTitle("\u5806\u7CD6\u6E38\u620F\u5E73\u53F0--\u6CE8\u518C");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -78,12 +79,12 @@ public class Register extends JFrame {
 		panel.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("\u8D26\u53F7\uFF1A");
-		lblNewLabel.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		lblNewLabel.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.PLAIN, 20));
 		lblNewLabel.setBounds(31, 23, 107, 32);
 		panel.add(lblNewLabel);
 		
 		JLabel lblPassword = new JLabel("\u7528\u6237\u540D\uFF1A");
-		lblPassword.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		lblPassword.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.PLAIN, 20));
 		lblPassword.setBounds(31, 74, 107, 32);
 		panel.add(lblPassword);
 		
@@ -98,7 +99,7 @@ public class Register extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u5BC6\u7801\uFF1A");
-		lblNewLabel_1.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		lblNewLabel_1.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.PLAIN, 20));
 		lblNewLabel_1.setBounds(31, 130, 107, 32);
 		panel.add(lblNewLabel_1);
 		

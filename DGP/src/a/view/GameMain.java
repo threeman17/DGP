@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import a.dao.UserInfoDao;
-import a.service.UserService;
+import a.service.UserInfoService;
 
 public class GameMain extends JFrame {
 	private JPanel bg;
 	private JLabel close;
 	private JLabel game1;
-	private UserService userservice=new UserService();
+	private UserInfoService userservice=new UserInfoService();
 	public GameMain() {
 		this.setSize(800,600);
 		this.setLocationRelativeTo(null);

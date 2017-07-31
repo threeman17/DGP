@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
-import a.service.UserService;
+import a.service.UserInfoService;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -67,7 +67,7 @@ public class Login extends JFrame {
 					String username=textField.getText().trim();
 					String password=textField_1.getText().trim();
 					
-					UserService user=new UserService();
+					UserInfoService user=new UserInfoService();
 					boolean isUser=user.login(username,password);
 					if(!isUser) {
 						JOptionPane.showMessageDialog(null, "账号或者密码错误", "警告", JOptionPane.ERROR_MESSAGE);
@@ -82,12 +82,10 @@ public class Login extends JFrame {
 		JButton btnNewButton_1 = new JButton("\u6CE8\u518C");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				closeThis();
+				close();
 				new Register().setVisible(true);
 			}
-			private void closeThis() {
-				setVisible(false);
-			}
+			
 		});
 		
 		textField = new JTextField();

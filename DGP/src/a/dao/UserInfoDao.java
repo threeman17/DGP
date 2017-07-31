@@ -11,7 +11,7 @@ import a.utils.DataSourceUtils;
 public class UserInfoDao {
 	
 	static UserInfo user;
-	//µÇÂ½
+	//ç™»é™†ï¼Œè¿”å›UserInfoï¼ˆå¯ä¸ºç©ºï¼‰
 		public static UserInfo login(String account,String pass_word) throws SQLException{
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
 			String sql="select * from userinfo where account=?,pass_word=?";
@@ -19,17 +19,17 @@ public class UserInfoDao {
 			return user;
 		}
 		
-	//×¢²á
+	//æ³¨å†Œ
 		public static void register(String account,String pass_word,String nick_name){
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
-			String sql="insert into userinfo set account=?,pass_word=?,nick_name=?";
+			String sql="insert into userinfo(account,pass_word,nick_name) values(?,?,?)";
 			try {
 				qr.update(sql,account,pass_word,nick_name);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		//²éÑ¯ÕËºÅĞÅÏ¢
+		//æŸ¥è¯¢ä¸€æ¡è´¦å·çš„ä¿¡æ¯
 		public static UserInfo seluser(String account) throws SQLException{
 			UserInfo user=new UserInfo();
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
@@ -37,7 +37,7 @@ public class UserInfoDao {
 			user=qr.query(sql, new BeanHandler<UserInfo>(UserInfo.class),account);
 			return user;
 		}
-		//¸üĞÂÓÃ»§»ı·Ö,xp
+		//æ›´æ–°ç§¯åˆ†,xp
 		public static void updsuer(String account,int integral,double xp){
 //			UserInfo user=new UserInfo();
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());

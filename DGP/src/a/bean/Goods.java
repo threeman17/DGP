@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 package a.bean;
 
 public class Goods {

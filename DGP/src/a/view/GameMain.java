@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import a.dao.UserInfoDao;
 import a.service.UserInfoService;
+import b.view.StartAPP;
 
 public class GameMain extends JFrame {
 	private JPanel bg;
@@ -65,7 +66,7 @@ public class GameMain extends JFrame {
 		
 		game1.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e) {
-				
+				StartAPP.start();
 			};
 		});
 		

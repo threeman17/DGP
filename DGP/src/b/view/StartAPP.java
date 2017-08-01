@@ -5,8 +5,7 @@ public class StartAPP {
 	public static void start() {
 		main=new MainUI();
 	}
-	public static void ag() {
+	public static void close() {
 		main.dispose();
-		main=new MainUI();
 	}
 }

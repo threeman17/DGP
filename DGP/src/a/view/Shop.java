@@ -56,8 +56,8 @@ public class Shop extends JFrame {
 		lblNewLabel.setBounds(33, 62, 54, 15);
 		panel.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("\u76AE\u80A4\u56FE\u7247");
-		lblNewLabel_1.setIcon(new ImageIcon("E:\\java\\新建文件夹 (3)\\DGP\\DGP\\shop\\s1.png"));
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("shop/s1.png"));
 		lblNewLabel_1.setBounds(33, 87, 54, 146);
 		panel.add(lblNewLabel_1);
 		
@@ -74,12 +74,12 @@ public class Shop extends JFrame {
 		panel.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.setIcon(new ImageIcon("E:\\java\\新建文件夹 (3)\\DGP\\DGP\\shop\\sx3.png"));
+		lblNewLabel_6.setIcon(new ImageIcon("shop/sx3.png"));
 		lblNewLabel_6.setBounds(230, 87, 66, 135);
 		panel.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("");
-		lblNewLabel_7.setIcon(new ImageIcon(Shop.class.getResource("/javax/swing/plaf/metal/icons/ocean/homeFolder.gif")));
+		lblNewLabel_7.setIcon(new ImageIcon("shop/sx3.png"));
 		lblNewLabel_7.setBounds(242, 266, 69, 117);
 		panel.add(lblNewLabel_7);
 		
@@ -102,7 +102,7 @@ public class Shop extends JFrame {
 		panel.add(label_3);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("E:\\java\\新建文件夹 (3)\\DGP\\DGP\\shop\\s2.png"));
+		lblNewLabel_3.setIcon(new ImageIcon("shop/s2.png"));
 		lblNewLabel_3.setBounds(33, 266, 66, 137);
 		panel.add(lblNewLabel_3);
 		

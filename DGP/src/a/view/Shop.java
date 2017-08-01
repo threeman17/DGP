@@ -90,15 +90,15 @@ public class Shop extends JFrame {
 		panel.add(label);
 		
 		JLabel label_1 = new JLabel("皮肤简介");
-		label_1.setBounds(350, 62, 54, 15);
+		label_1.setBounds(321, 62, 54, 15);
 		panel.add(label_1);
 		
 		JLabel label_2 = new JLabel("皮肤简介");
-		label_2.setBounds(123, 227, 109, 33);
+		label_2.setBounds(110, 227, 109, 33);
 		panel.add(label_2);
 		
 		JLabel label_3 = new JLabel("皮肤简介");
-		label_3.setBounds(350, 227, 109, 33);
+		label_3.setBounds(321, 227, 109, 33);
 		panel.add(label_3);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
@@ -123,11 +123,27 @@ public class Shop extends JFrame {
 		panel.add(button_1);
 		
 		JButton button_2 = new JButton("购买");
-		button_2.setBounds(102, 344, 82, 39);
+		button_2.setBounds(102, 364, 82, 39);
 		panel.add(button_2);
 		
 		JButton button_3 = new JButton("购买");
-		button_3.setBounds(321, 344, 83, 39);
+		button_3.setBounds(321, 364, 83, 39);
 		panel.add(button_3);
+		
+		JLabel label_6 = new JLabel("所需积分：");
+		label_6.setBounds(110, 119, 74, 39);
+		panel.add(label_6);
+		
+		JLabel label_7 = new JLabel("所需积分：");
+		label_7.setBounds(321, 119, 83, 39);
+		panel.add(label_7);
+		
+		JLabel label_8 = new JLabel("所需积分：");
+		label_8.setBounds(110, 282, 74, 39);
+		panel.add(label_8);
+		
+		JLabel label_9 = new JLabel("所需积分：");
+		label_9.setBounds(321, 282, 83, 39);
+		panel.add(label_9);
 	}
 }

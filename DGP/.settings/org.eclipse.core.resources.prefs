@@ -1,8 +1,7 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'dev' of https\://github.com/threeman17/DGP
 eclipse.preferences.version=1
-<<<<<<< HEAD
 encoding//src/a/view/GameMain.java=UTF-8
-=======
->>>>>>> branch 'dev' of https://github.com/threeman17/DGP
-encoding//src/a/view/Login.java=UTF-8
 encoding//src/a/view/Register.java=UTF-8
 encoding//src/a/view/Shop.java=UTF-8

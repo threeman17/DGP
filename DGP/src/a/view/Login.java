@@ -95,10 +95,10 @@ public class Login extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("\u8D26\u53F7\uFF1A");
-		lblNewLabel.setFont(new Font("����", Font.PLAIN, 20));
+		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 20));
 		
 		JLabel lblNewLabel_1 = new JLabel("\u5BC6\u7801\uFF1A");
-		lblNewLabel_1.setFont(new Font("����", Font.PLAIN, 20));
+		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 20));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)

@@ -5,13 +5,14 @@ import java.util.Date;
 public class GamePlayHistory {
 		public String account;
 		public String game_name;
-		public int game_id;
+		public int gameplay_id;
 		public int integral_get;
 		public int play_min;
 		public int record;
 		public double xp_gain_factor;
 		public double integral_gain_factor;
 		public Date start_time;
+		
 		public String getAccount() {
 			return account;
 		}
@@ -24,11 +25,11 @@ public class GamePlayHistory {
 		public void setGame_name(String game_name) {
 			this.game_name = game_name;
 		}
-		public int getGame_id() {
-			return game_id;
+		public int getGamePlay_id() {
+			return gameplay_id;
 		}
-		public void setGame_id(int game_id) {
-			this.game_id = game_id;
+		public void setGamePlay_id(int game_id) {
+			this.gameplay_id = game_id;
 		}
 		public int getIntegral_get() {
 			return integral_get;
@@ -71,7 +72,7 @@ public class GamePlayHistory {
 			final int prime = 31;
 			int result = 1;
 			result = prime * result + ((account == null) ? 0 : account.hashCode());
-			result = prime * result + game_id;
+			result = prime * result + gameplay_id;
 			result = prime * result + ((game_name == null) ? 0 : game_name.hashCode());
 			long temp;
 			temp = Double.doubleToLongBits(integral_gain_factor);
@@ -98,7 +99,7 @@ public class GamePlayHistory {
 					return false;
 			} else if (!account.equals(other.account))
 				return false;
-			if (game_id != other.game_id)
+			if (gameplay_id != other.gameplay_id)
 				return false;
 			if (game_name == null) {
 				if (other.game_name != null)
@@ -124,7 +125,7 @@ public class GamePlayHistory {
 		}
 		@Override
 		public String toString() {
-			return "GamePlayHistory [account=" + account + ", game_name=" + game_name + ", game_id=" + game_id
+			return "GamePlayHistory [account=" + account + ", game_name=" + game_name + ", game_id=" + gameplay_id
 					+ ", integral_get=" + integral_get + ", play_min=" + play_min + ", record=" + record
 					+ ", xp_gain_factor=" + xp_gain_factor + ", integral_gain_factor=" + integral_gain_factor
 					+ ", start_time=" + start_time + "]";

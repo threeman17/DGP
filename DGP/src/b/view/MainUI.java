@@ -36,7 +36,7 @@ public class MainUI extends JFrame{
 		this.setLayout(null);
 		this.setTitle("推箱子");
 		this.setSize(816, 640);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		

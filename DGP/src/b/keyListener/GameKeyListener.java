@@ -218,8 +218,13 @@ public class GameKeyListener extends KeyAdapter{
 //						victory.setLayout(null);
 //						victory.setVisible(true);
 //						main.ag();
-						JOptionPane.showConfirmDialog(main, "恭喜你获得胜利");
-						StartAPP.ag();
+//						JOptionPane.showConfirmDialog(main, "恭喜你获得胜利");
+						int n = JOptionPane.showConfirmDialog(null, "需要继续下一关吗?", "恭喜你获得了胜利",JOptionPane.YES_NO_OPTION);//i=0/1  
+						StartAPP.close();
+						if(n==0) {
+							StartAPP.start();
+						}
+						
 //						new MainUI();
 					}
 				}

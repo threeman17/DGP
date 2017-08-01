@@ -39,7 +39,13 @@ public class GameKeyListener extends KeyAdapter{
 //		}
 		
 		datas=Datas.ergodic(Datas.pass2);
-		System.out.println("初始化main:--"+main+"des长度"+des.size());
+		System.out.println("des长度"+des.size());
+		for (int i = 0; i < datas.length; i++) {
+			for (int j = 0; j < datas[i].length; j++) {
+				System.out.print(datas[i][j]);
+			}
+			System.out.println();
+		}
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -190,8 +196,8 @@ public class GameKeyListener extends KeyAdapter{
 //			}
 			
 			for (int i = 0; i < des.size(); i+=2) {
-				if(datas[i][i+1]!=2 && datas[i][i+1]!=5) {
-					datas[i][i+1]=4;
+				if(datas[des.get(i)][des.get(i+1)]!=2 && datas[des.get(i)][des.get(i+1)]!=5) {
+					datas[des.get(i)][des.get(i+1)]=4;
 				}
 			}
 		}

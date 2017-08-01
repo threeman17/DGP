@@ -46,7 +46,7 @@ public class UserInfoDao {
 		//更新积分，xp
 		public static void upduser(String account,int integral,double xp){
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
-			String sql="update userinfo set integral=?,xp=? where account=?";
+			String sql="update userinfo set integral=integral+?,xp=xp+? where account=?";
 			try {
 				qr.update(sql, integral,xp,account);
 			} catch (SQLException e) {

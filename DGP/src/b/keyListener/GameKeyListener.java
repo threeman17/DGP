@@ -2,6 +2,7 @@ package b.keyListener;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JDialog;
@@ -9,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import a.dao.UserInfoDao;
+import a.service.GamePlayHistoryService;
+import a.service.UserInfoService;
 import b.datas.Datas;
 import b.model.Box;
 import b.model.Hero;
@@ -24,6 +28,9 @@ public class GameKeyListener extends KeyAdapter{
 //	Map<Integer, Integer> des;
 	List<Integer> des;
 	MainUI main;
+	long startGameTime;
+	long endGameTime;
+	Date currentDate;
 	public GameKeyListener(Hero hero,JLabel[][] boxs,List<Integer> des,MainUI main) {
 		super();
 		this.hero = hero;
@@ -37,6 +44,10 @@ public class GameKeyListener extends KeyAdapter{
 //				datas[i][j]=Datas.pass1[i][j];
 //			}
 //		}
+		
+		startGameTime=System.currentTimeMillis();
+		currentDate=new Date();
+		
 		
 		datas=Datas.ergodic(Datas.pass2);
 		System.out.println("des长度"+des.size());
@@ -225,7 +236,15 @@ public class GameKeyListener extends KeyAdapter{
 //						victory.setVisible(true);
 //						main.ag();
 //						JOptionPane.showConfirmDialog(main, "恭喜你获得胜利");
-						int n = JOptionPane.showConfirmDialog(null, "需要继续下一关吗?", "恭喜你获得了胜利",JOptionPane.YES_NO_OPTION);//i=0/1  
+						endGameTime=System.currentTimeMillis();
+						int GameTime=(int) (endGameTime-startGameTime)/1000;
+						int integral=GameTime>500?1000:(6000-GameTime*10);
+						
+						
+						UserInfoService uis=new UserInfoService();
+						new GamePlayHistoryService().insGamePlayHistory("推箱子", currentDate, GameTime, integral, 0, integral, 0, 1);
+						uis.upduser(UserInfoDao.getUser().getAccount(), integral, integral);
+						int n = JOptionPane.showConfirmDialog(null, "在"+GameTime+"秒拿到了"+integral+"经验。需要继续下一关吗?", "恭喜"+uis.getUserNickName()+"获得了胜利",JOptionPane.YES_NO_OPTION);//i=0/1  
 						StartAPP.close();
 						if(n==0) {
 							StartAPP.start();

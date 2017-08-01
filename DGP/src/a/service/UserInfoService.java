@@ -55,6 +55,16 @@ public class UserInfoService {
 		userinfodao.register(account, password, nickname);
 	}
 	/**
+	 * 修改用户的积分好经验
+	 * @param account
+	 * @param integral
+	 * @param xp
+	 */
+	public void upduser(String account,int integral,double xp ) {
+		UserInfoDao uid=new UserInfoDao();
+		uid.upduser(account, integral, xp);
+	}
+	/**
 	 * 获得当前玩家的昵称
 	 * @return
 	 */

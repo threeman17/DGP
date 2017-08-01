@@ -13,13 +13,13 @@ import org.junit.Test;
 import a.bean.GamePlayHistory;
 import a.utils.DataSourceUtils;
 
-public class GamePlayHistoryDAO {
+public class GamePlayHistoryDao {
 	/**
 	 * 查询一个账号的所有游戏记录
 	 * @return List<GamePlayHistory>
 	 * @throws SQLException 
 	 */
-		public static List<GamePlayHistory> selgameplayhistory(String account) throws SQLException
+		public  List<GamePlayHistory> selgameplayhistory(String account) throws SQLException
 		{
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
 			String sql="select * from gameplayhistory where account=?";
@@ -33,7 +33,7 @@ public class GamePlayHistoryDAO {
 		 * @param gameplay_id
 		 * @return
 		 */
-		public static int selrecord(String account,int gameplay_id)
+		public  int selrecord(String account,int gameplay_id)
 		{
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
 			String sql="select * from gameplayhistory where account=?,gameplay_id=?";
@@ -52,7 +52,7 @@ public class GamePlayHistoryDAO {
 		 * @return
 		 * @throws SQLException
 		 */
-		public static int seltotalplaytime(String account) throws SQLException
+		public  int seltotalplaytime(String account) throws SQLException
 		{	
 			int st=0;
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
@@ -64,19 +64,19 @@ public class GamePlayHistoryDAO {
 		 * 插入游戏记录
 		 * @param g
 		 */
-		public static void insgameplayhistory(GamePlayHistory g)
-		{	GamePlayHistory gp=new GamePlayHistory();
-			gp=g;
+		public void insGamePlayHistory(GamePlayHistory g)
+		{	
+			
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
 			String sql="insert into gameplayhistory set "
 					+ "account=?,game_name=?,gameplay_id=?,"
 					+ "integral_get=?,play_min=?,record=?,"
-					+ "xp_gain_factor=?,integral_gain_factor=?,start_time=?";
+					+ "xp_gain_factor=?,integral_gain_factor=?,start_time=?,xp_get=?";
 			try {
-				qr.update(sql, gp.getAccount(),gp.getGame_name(),gp.getGamePlay_id(),
-							gp.getIntegral_get(),gp.getPlay_min(),gp.getRecord(),
-							gp.getXp_gain_factor(),gp.getIntegral_gain_factor(),
-							gp.getStart_time());
+				qr.update(sql, g.getAccount(),g.getGame_name(),g.getGamePlay_id(),
+							g.getIntegral_get(),g.getPlay_min(),g.getRecord(),
+							g.getXp_gain_factor(),g.getIntegral_gain_factor(),
+							g.getStart_time(),g.getXp_get());
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

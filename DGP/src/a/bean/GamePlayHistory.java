@@ -7,9 +7,23 @@ public class GamePlayHistory {
 		public String game_name;
 		public int gameplay_id;
 		public int integral_get;
+		public double intergral_get_factor;
 		public int play_min;
 		public int record;
 		public double xp_gain_factor;
+		public int xp_get;
+		public int getGameplay_id() {
+			return gameplay_id;
+		}
+		public void setGameplay_id(int gameplay_id) {
+			this.gameplay_id = gameplay_id;
+		}
+		public int getXp_get() {
+			return xp_get;
+		}
+		public void setXp_get(int xp_get) {
+			this.xp_get = xp_get;
+		}
 		public double integral_gain_factor;
 		public Date start_time;
 		
@@ -51,6 +65,12 @@ public class GamePlayHistory {
 		}
 		public double getXp_gain_factor() {
 			return xp_gain_factor;
+		}
+		public double getIntergral_get_factor() {
+			return intergral_get_factor;
+		}
+		public void setIntergral_get_factor(double intergral_get_factor) {
+			this.intergral_get_factor = intergral_get_factor;
 		}
 		public void setXp_gain_factor(double xp_gain_factor) {
 			this.xp_gain_factor = xp_gain_factor;

@@ -99,12 +99,12 @@ public class Register extends JFrame {
 		panel.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("\u8D26\u53F7\uFF1A");
-		lblNewLabel.setFont(new Font("����", Font.PLAIN, 20));
+		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 20));
 		lblNewLabel.setBounds(31, 23, 107, 32);
 		panel.add(lblNewLabel);
 		
 		JLabel lblPassword = new JLabel("\u7528\u6237\u540D\uFF1A");
-		lblPassword.setFont(new Font("����", Font.PLAIN, 20));
+		lblPassword.setFont(new Font("宋体", Font.PLAIN, 20));
 		lblPassword.setBounds(31, 74, 107, 32);
 		panel.add(lblPassword);
 		
@@ -119,7 +119,7 @@ public class Register extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u5BC6\u7801\uFF1A");
-		lblNewLabel_1.setFont(new Font("����", Font.PLAIN, 20));
+		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 20));
 		lblNewLabel_1.setBounds(31, 130, 107, 32);
 		panel.add(lblNewLabel_1);
 		

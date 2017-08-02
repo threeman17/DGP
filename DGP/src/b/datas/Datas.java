@@ -34,7 +34,7 @@ public class Datas {
 			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 		};
 	
-	public static int[][] pass = {
+	public static int[][] pass3 = {
 			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 			{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 			{1,0,0,1,3,4,0,1,0,1,1,1,0,0,0,1},
@@ -65,8 +65,17 @@ public class Datas {
 			return ergodic(Datas.pass1);
 		case 2:
 			return ergodic(Datas.pass2);
+		case 3:
+			return ergodic(Datas.pass3);
+//		case 4:
+//			return ergodic(Datas.pass4);
+//		case 5:
+//			return ergodic(Datas.pass5);
+//		case 6:
+//			return ergodic(Datas.pass6);
 			
 		}
+		
 		return null;
 	}
 }

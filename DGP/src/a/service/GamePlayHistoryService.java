@@ -35,8 +35,20 @@ public class GamePlayHistoryService {
 		
 		new GamePlayHistoryDao().insGamePlayHistory(gph);;
 	}
+	/**
+	 * 获得当前玩家某个游戏的最高记录
+	 * @param account
+	 * @param game_name
+	 * @return
+	 */
+	public int selrecord(String account ,String game_name) {
+		GamePlayHistoryDao gphd=new GamePlayHistoryDao();
+		
+		Object value =gphd.selrecord(account, game_name);
+		return Integer.parseInt(String.valueOf(value));
+	}
 	@Test
 	public void demo() {
-		new GamePlayHistoryService().insGamePlayHistory("推箱子", new Date(), 1000, 1200, 0.2, 500, 0.4, 1);
+		System.out.println(new GamePlayHistoryService().selrecord("1", "推箱子"));
 	}
 }

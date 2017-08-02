@@ -8,6 +8,8 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ColumnListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.junit.Test;
 
 import a.bean.GamePlayHistory;
@@ -33,17 +35,18 @@ public class GamePlayHistoryDao {
 		 * @param gameplay_id
 		 * @return
 		 */
-		public  int selrecord(String account,int gameplay_id)
+		public Object selrecord(String account,String game_name)
 		{
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
-			String sql="select * from gameplayhistory where account=?,gameplay_id=?";
-			int re = 0;
+			String sql="select record from gameplayhistory where account=? and game_name=? order by record desc";
+			Object number=null;
 			try {
-				re =qr.query(sql,new BeanHandler<GamePlayHistory>(GamePlayHistory.class),account,gameplay_id).record;
+//				 ScalarHandler scalarHandler = new ScalarHandler();  
+		         number = qr.query(sql, new ScalarHandler("record"),account,game_name);  
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			return re;
+			return number;
 		}
 		
 		/**

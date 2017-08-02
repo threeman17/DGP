@@ -62,7 +62,7 @@ public class MainUI extends JFrame{
 //				datas[i][j]=Datas.pass1[i][j];
 //			}
 //		}
-		datas=Datas.ergodic(Datas.pass2);
+		datas=Datas.getGameLevel();
 		for (int i = 0; i < datas.length; i++) {
 			for (int j = 0; j < datas[i].length; j++) {
 				if(datas[i][j]==1) {

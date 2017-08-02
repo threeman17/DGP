@@ -45,6 +45,9 @@ public class GamePlayHistoryService {
 		GamePlayHistoryDao gphd=new GamePlayHistoryDao();
 		
 		Object value =gphd.selrecord(account, game_name);
+		if(value==null) {
+			return 1;
+		}
 		return Integer.parseInt(String.valueOf(value));
 	}
 	@Test

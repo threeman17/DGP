@@ -49,7 +49,7 @@ public class GameKeyListener extends KeyAdapter{
 		currentDate=new Date();
 		
 		
-		datas=Datas.ergodic(Datas.pass2);
+		datas=Datas.getGameLevel();
 		System.out.println("des长度"+des.size());
 		for (int i = 0; i < datas.length; i++) {
 			for (int j = 0; j < datas[i].length; j++) {
@@ -242,7 +242,9 @@ public class GameKeyListener extends KeyAdapter{
 						
 						
 						UserInfoService uis=new UserInfoService();
-						new GamePlayHistoryService().insGamePlayHistory("推箱子", currentDate, GameTime, integral, 0, integral, 0, 1);
+						GamePlayHistoryService gphs=new GamePlayHistoryService();
+						int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子")+1;
+						new GamePlayHistoryService().insGamePlayHistory("推箱子", currentDate, GameTime, integral, 0, integral, 0,level );
 						uis.upduser(UserInfoDao.getUser().getAccount(), integral, integral);
 						int n = JOptionPane.showConfirmDialog(null, "在"+GameTime+"秒拿到了"+integral+"经验。需要继续下一关吗?", "恭喜"+uis.getUserNickName()+"获得了胜利",JOptionPane.YES_NO_OPTION);//i=0/1  
 						StartAPP.close();

@@ -1,17 +1,21 @@
 package a.view;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Shop extends JFrame {
 
@@ -42,11 +46,23 @@ public class Shop extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Register.class.getResource("/1.jpg")));
 		setTitle("\u5546\u57CE");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 495, 487);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		setBounds(100, 100, 500, 600);
+		
+		contentPane = new JPanel(){
+            @Override  
+            protected void paintComponent(Graphics g) {  
+                 super.paintComponent(g);
+                 ImageIcon icon = new ImageIcon("img/7.jpg");  
+                 Image img = icon.getImage();
+                 g.drawImage(img, 0, 0, 500, 600, icon.getImageObserver());  
+                 
+//                 ImageIcon img = new ImageIcon(Shop.class.getResource("img/7.jpg"));         
+//                 img.paintIcon(this, g, 0, 0);                              
+            }
+       };
+       contentPane.setSize(500,600); 
+       getContentPane().add(contentPane);
+		
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -119,6 +135,10 @@ public class Shop extends JFrame {
 		panel.add(button);
 		
 		JButton button_1 = new JButton("购买");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		button_1.setBounds(321, 194, 83, 39);
 		panel.add(button_1);
 		

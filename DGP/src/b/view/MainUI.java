@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+import a.service.GameInfoService;
 import b.datas.Datas;
 import b.keyListener.GameKeyListener;
 import b.model.Barrier;
@@ -63,12 +63,15 @@ public class MainUI extends JFrame{
 //			}
 //		}
 		datas=Datas.getGameLevel();
+		GameInfoService gis=new GameInfoService("推箱子");
+		
 		for (int i = 0; i < datas.length; i++) {
 			for (int j = 0; j < datas[i].length; j++) {
 				if(datas[i][j]==1) {
 					bg.add(new Barrier(j, i, "img/tree.png").getJLabel());
 				}else if(datas[i][j]==2) {
-					hero=new Hero(j, i, "img/0-1.png");
+					hero=new Hero(j, i, "img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"3.png");
+					System.out.println("img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"3.png");
 					bg.add(hero.getJLabel());
 				}else if(datas[i][j]==3) {
 					JLabel temp=new Box(j, i, "img/sheep-no.png").getJLabel();

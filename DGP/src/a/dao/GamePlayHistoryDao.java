@@ -41,7 +41,6 @@ public class GamePlayHistoryDao {
 			String sql="select record from gameplayhistory where account=? and game_name=? order by record desc";
 			Object number=null;
 			try {
-//				 ScalarHandler scalarHandler = new ScalarHandler();  
 		         number = qr.query(sql, new ScalarHandler("record"),account,game_name);  
 			} catch (SQLException e) {
 				e.printStackTrace();

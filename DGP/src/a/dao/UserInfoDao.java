@@ -21,13 +21,24 @@ public class UserInfoDao {
 		}
 		
 
-	//注册
+		//注册
 
 		public static void register(String account,String pass_word,String nick_name){
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
 			String sql="insert into userinfo(account,pass_word,nick_name) values(?,?,?)";
 			try {
 				qr.update(sql,account,pass_word,nick_name);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			readGameInfo(account);
+		}
+		
+		public static void readGameInfo(String account) {
+			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
+			String sql="insert into gameinfo(account,game_name) values(?,?)";
+			try {
+				qr.update(sql,account,"推箱子");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

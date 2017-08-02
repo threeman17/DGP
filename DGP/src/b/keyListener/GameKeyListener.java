@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import a.dao.UserInfoDao;
+import a.service.GameInfoService;
 import a.service.GamePlayHistoryService;
 import a.service.UserInfoService;
 import b.datas.Datas;
@@ -31,6 +32,7 @@ public class GameKeyListener extends KeyAdapter{
 	long startGameTime;
 	long endGameTime;
 	Date currentDate;
+	GameInfoService gis=new GameInfoService("推箱子");
 	public GameKeyListener(Hero hero,JLabel[][] boxs,List<Integer> des,MainUI main) {
 		super();
 		this.hero = hero;
@@ -64,7 +66,7 @@ public class GameKeyListener extends KeyAdapter{
 		super.keyPressed(e);
 		int key = e.getKeyCode();
 		if(key == 39) {
-			hero.setHeroPic("img/wolf-ym.png");
+			hero.setHeroPic("img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"2.png");
 			if(datas[y][x+1]==1) {
 				return;
 			}else if(datas[y][x+1]==3 || datas[y][x+1]==5) {
@@ -96,7 +98,7 @@ public class GameKeyListener extends KeyAdapter{
 			againDes();
 			checkSuss();
 		}else if(key ==37) {
-			hero.setHeroPic("img/wolf-zb.png");
+			hero.setHeroPic("img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"4.png");
 			if(datas[y][x-1]==1) {
 				return;
 			}else if(datas[y][x-1]==3 || datas[y][x-1]==5) {
@@ -122,7 +124,7 @@ public class GameKeyListener extends KeyAdapter{
 			againDes();
 			checkSuss();
 		}else if(key==38) {
-			hero.setHeroPic("img/wolf-sm.png");
+			hero.setHeroPic("img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"1.png");
 			if(datas[y-1][x]==1) {
 				return;
 			}else if(datas[y-1][x]==3 || datas[y-1][x]==5) {
@@ -152,7 +154,7 @@ public class GameKeyListener extends KeyAdapter{
 			againDes();
 			checkSuss();
 		}else if(key==40) {
-			hero.setHeroPic("img/wolf-zm.png");
+			hero.setHeroPic("img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"3.png");
 			if(datas[y+1][x]==1) {
 				return;
 			}else if(datas[y+1][x]==3 || datas[y+1][x]==5) {

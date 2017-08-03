@@ -35,6 +35,7 @@ public class GameMain extends JFrame {
 		backgroudInit();
 		moreInit();
 		dragInit();
+		checkClick();
 		this.setVisible(true);
 	}
 	public void backgroudInit() {
@@ -136,6 +137,24 @@ public class GameMain extends JFrame {
 
 				}
 			}
+		});
+	}
+	
+	
+	public void checkClick() {
+		this.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int x=e.getX();
+				int y=e.getY();
+				if(x>150&&x<225 && y>328 && y<360) {
+					System.out.println("点中了");
+				}else if(x>226&&x<336 && y>328 && y<360) {
+					new HistoryWindow(UserInfoDao.getUser().getAccount());
+				}
+			}
+			
 		});
 	}
 	

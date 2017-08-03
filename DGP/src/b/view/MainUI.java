@@ -1,14 +1,21 @@
 package b.view;
 
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 import a.service.GameInfoService;
 import b.datas.Datas;
@@ -30,6 +37,7 @@ public class MainUI extends JFrame{
 		backgroudInit();
 		heroInit();
 		mainUIInit();
+		DigInit();
 		this.addKeyListener(new GameKeyListener(hero,boxs,des,main));
 	}
 	public void mainUIInit() {
@@ -93,7 +101,51 @@ public class MainUI extends JFrame{
 		System.out.println("ag"+main);
 	}
 	
-	
+	public void DigInit() {
+		// 弹窗
+		JDialog victory = new JDialog(this,"欢迎你来到推箱子游戏",true);
+		victory.setSize(400, 300);
+		victory.setLocationRelativeTo(null);
+		victory.setLayout(null);
+		
+//		JLabel info = new JLabel(new ImageIcon("gg.jpg"));
+//		info.setBounds(2, 2, 380, 180);
+//		victory.add(info);
+//		
+//		JLabel click = new JLabel(new ImageIcon("gg2.jpg"));
+//		click.setBounds(2, 182, 380, 88);
+//		click.addMouseListener(new MouseAdapter(){
+//			public void mousePressed(MouseEvent e) {
+//				try {
+//					Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://www.baidu.com");
+//				} catch (IOException e1) {
+//					e1.printStackTrace();
+//				}
+//			}
+//		});
+//		victory.add(click);
+		
+		
+//		JLabel username=new JLabel(userservice.getUserNickName(),JLabel.CENTER);
+//		username.setFont(new Font("微软雅黑", 0, 24));
+//		username.setForeground(Color.cyan);
+//		username.setSize(315, 35);
+//		username.setLocation(20, 88);
+//		bg.add(username);
+		String str="推箱子是一个来自日本的古老游戏，"
+				+ "目的是在训练你的逻辑思考能力。在一个狭小的仓库中，"
+				+ "要求把木箱放到指定的位置，"
+				+ "稍不小心就会出现箱子无法移动或者通道被堵住的情况，"
+				+ "所以需要巧妙的利用有限的空间和通道，合理安排移动的次序和位置，"
+				+ "才能顺利的完成任务。我们会根据你的移动的步数和事件来计算最后的积分与经验，祝你好运！";
+		JTextArea info=new JTextArea(str);
+		info.setSize(380,180);
+		info.setFont(new Font("微软雅黑", 0, 14));
+		info.setLineWrap(true);
+		info.setEditable(false);
+		victory.add(info);
+		victory.setVisible(true);
+	}
 	
 	
 }

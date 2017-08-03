@@ -28,6 +28,7 @@ public class Register extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JPasswordField textField_2;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -100,33 +101,43 @@ public class Register extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("\u8D26\u53F7\uFF1A");
 		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 20));
-		lblNewLabel.setBounds(31, 23, 107, 32);
+		lblNewLabel.setBounds(31, 10, 107, 32);
 		panel.add(lblNewLabel);
 		
 		JLabel lblPassword = new JLabel("\u7528\u6237\u540D\uFF1A");
 		lblPassword.setFont(new Font("宋体", Font.PLAIN, 20));
-		lblPassword.setBounds(31, 74, 107, 32);
+		lblPassword.setBounds(31, 52, 107, 32);
 		panel.add(lblPassword);
 		
 		textField = new JTextField();
-		textField.setBounds(162, 26, 200, 32);
+		textField.setBounds(148, 13, 200, 32);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(162, 77, 200, 32);
+		textField_1.setBounds(148, 55, 200, 32);
 		panel.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u5BC6\u7801\uFF1A");
 		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(31, 130, 107, 32);
+		lblNewLabel_1.setBounds(31, 94, 107, 32);
 		panel.add(lblNewLabel_1);
 		
 		textField_2 = new JPasswordField();
-		textField_2.setBounds(162, 133, 200, 32);
+		textField_2.setBounds(148, 97, 200, 32);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("email：");
+		lblNewLabel_2.setFont(new Font("宋体", Font.PLAIN, 20));
+		lblNewLabel_2.setBounds(28, 153, 70, 15);
+		panel.add(lblNewLabel_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(148, 139, 200, 34);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
 	}
 	public void close() {
 		this.dispose();

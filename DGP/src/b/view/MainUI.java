@@ -17,7 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import a.dao.UserInfoDao;
 import a.service.GameInfoService;
+import a.service.GamePlayHistoryService;
 import b.datas.Datas;
 import b.keyListener.GameKeyListener;
 import b.model.Barrier;
@@ -103,6 +105,12 @@ public class MainUI extends JFrame{
 	
 	public void DigInit() {
 		// 弹窗
+		GamePlayHistoryService gphs=new GamePlayHistoryService();
+		int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子");
+		
+		if(level!=1) {
+			return;
+		}
 		JDialog victory = new JDialog(this,"欢迎你来到推箱子游戏",true);
 		victory.setSize(400, 300);
 		victory.setLocationRelativeTo(null);
@@ -143,6 +151,7 @@ public class MainUI extends JFrame{
 		info.setFont(new Font("微软雅黑", 0, 14));
 		info.setLineWrap(true);
 		info.setEditable(false);
+		info.setOpaque(false);
 		victory.add(info);
 		victory.setVisible(true);
 	}

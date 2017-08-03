@@ -1,7 +1,7 @@
 package a.view;
 
 import java.awt.BorderLayout;
-
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -47,21 +47,13 @@ public class Shop extends JFrame {
 		setTitle("\u5546\u57CE");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 600);
-		
-		contentPane = new JPanel(){
-            @Override  
-            protected void paintComponent(Graphics g) {  
-                 super.paintComponent(g);
-                 ImageIcon icon = new ImageIcon("img/7.jpg");  
-                 Image img = icon.getImage();
-                 g.drawImage(img, 0, 0, 500, 600, icon.getImageObserver());  
-                 
-//                 ImageIcon img = new ImageIcon(Shop.class.getResource("img/7.jpg"));         
-//                 img.paintIcon(this, g, 0, 0);                              
-            }
-       };
-       contentPane.setSize(500,600); 
-       getContentPane().add(contentPane);
+		 
+
+       contentPane = new JPanel();
+       contentPane.setBackground(new Color(240,255,240));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
 		
 		
 		JPanel panel = new JPanel();
@@ -166,4 +158,5 @@ public class Shop extends JFrame {
 		label_9.setBounds(321, 282, 83, 39);
 		panel.add(label_9);
 	}
+	
 }

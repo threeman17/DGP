@@ -8,10 +8,7 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
-import org.apache.commons.dbutils.handlers.ColumnListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-import org.junit.Test;
-
 import a.bean.GamePlayHistory;
 import a.utils.DataSourceUtils;
 
@@ -21,7 +18,7 @@ public class GamePlayHistoryDao {
 	 * @return List<GamePlayHistory>
 	 * @throws SQLException 
 	 */
-		public  List<GamePlayHistory> selgameplayhistory(String account) throws SQLException
+		public static  List<GamePlayHistory> selgameplayhistory(String account) throws SQLException
 		{
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
 			String sql="select * from gameplayhistory where account=?";
@@ -35,7 +32,7 @@ public class GamePlayHistoryDao {
 		 * @param gameplay_id
 		 * @return
 		 */
-		public Object selrecord(String account,String game_name)
+		public static Object selrecord(String account,String game_name)
 		{
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
 			String sql="select record from gameplayhistory where account=? and game_name=? order by record desc";
@@ -54,7 +51,7 @@ public class GamePlayHistoryDao {
 		 * @return
 		 * @throws SQLException
 		 */
-		public  int seltotalplaytime(String account) throws SQLException
+		public static int seltotalplaytime(String account) throws SQLException
 		{	
 			int st=0;
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
@@ -66,7 +63,7 @@ public class GamePlayHistoryDao {
 		 * 插入游戏记录
 		 * @param g
 		 */
-		public void insGamePlayHistory(GamePlayHistory g)
+		public static void insGamePlayHistory(GamePlayHistory g)
 		{	
 			
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
@@ -84,14 +81,5 @@ public class GamePlayHistoryDao {
 			}
 		}
 		
-	@Test
-	public void demo(){
-		try {
-			System.out.println(seltotalplaytime("lxy"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 		
 }

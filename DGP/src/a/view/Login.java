@@ -49,6 +49,7 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		setForeground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/1.jpg")));
 		setTitle("\u5806\u7CD6\u6E38\u620F\u5E73\u53F0--\u767B\u9646");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,6 +61,8 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(224, 255, 255));
+		panel.setForeground(Color.BLACK);
 		contentPane.add(panel, BorderLayout.CENTER);
 		
 		JButton btnNewButton = new JButton("\u767B\u5F55");
@@ -108,7 +111,7 @@ public class Login extends JFrame {
 		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 20));
 		
 		JLabel label = new JLabel("游戏登录");
-		label.setForeground(Color.GREEN);
+		label.setForeground(Color.CYAN);
 		label.setFont(new Font("幼圆", Font.BOLD | Font.ITALIC, 24));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(

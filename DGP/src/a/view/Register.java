@@ -21,6 +21,8 @@ import java.awt.Toolkit;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class Register extends JFrame {
 
@@ -61,10 +63,13 @@ public class Register extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(224, 255, 255));
+		panel.setForeground(Color.WHITE);
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
 		JButton btnNewButton = new JButton("\u6CE8\u518C");
+		btnNewButton.setForeground(Color.CYAN);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String account=textField.getText().trim();
@@ -85,10 +90,11 @@ public class Register extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(68, 199, 93, 23);
+		btnNewButton.setBounds(74, 200, 93, 23);
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("\u767B\u5F55");
+		btnNewButton_1.setForeground(Color.CYAN);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				close();
@@ -96,48 +102,58 @@ public class Register extends JFrame {
 			}
 			
 		});
-		btnNewButton_1.setBounds(247, 199, 93, 23);
+		btnNewButton_1.setBounds(223, 200, 93, 23);
 		panel.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("\u8D26\u53F7\uFF1A");
+		lblNewLabel.setForeground(Color.GREEN);
 		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 20));
-		lblNewLabel.setBounds(31, 10, 107, 32);
+		lblNewLabel.setBounds(60, 59, 107, 23);
 		panel.add(lblNewLabel);
 		
 		JLabel lblPassword = new JLabel("\u7528\u6237\u540D\uFF1A");
+		lblPassword.setForeground(Color.GREEN);
 		lblPassword.setFont(new Font("宋体", Font.PLAIN, 20));
-		lblPassword.setBounds(31, 52, 107, 32);
+		lblPassword.setBounds(60, 90, 107, 23);
 		panel.add(lblPassword);
 		
 		textField = new JTextField();
-		textField.setBounds(148, 13, 200, 32);
+		textField.setBounds(133, 61, 200, 23);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(148, 55, 200, 32);
+		textField_1.setBounds(133, 92, 200, 23);
 		panel.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u5BC6\u7801\uFF1A");
+		lblNewLabel_1.setForeground(Color.GREEN);
 		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(31, 94, 107, 32);
+		lblNewLabel_1.setBounds(60, 123, 107, 23);
 		panel.add(lblNewLabel_1);
 		
 		textField_2 = new JPasswordField();
-		textField_2.setBounds(148, 97, 200, 32);
+		textField_2.setBounds(133, 125, 200, 23);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("email：");
+		lblNewLabel_2.setForeground(Color.GREEN);
 		lblNewLabel_2.setFont(new Font("宋体", Font.PLAIN, 20));
-		lblNewLabel_2.setBounds(28, 153, 70, 15);
+		lblNewLabel_2.setBounds(59, 156, 70, 15);
 		panel.add(lblNewLabel_2);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(148, 139, 200, 34);
+		textField_3.setBounds(133, 156, 200, 23);
 		panel.add(textField_3);
 		textField_3.setColumns(10);
+		
+		JLabel label = new JLabel("游戏注册");
+		label.setForeground(Color.CYAN);
+		label.setFont(new Font("幼圆", Font.BOLD | Font.ITALIC, 24));
+		label.setBounds(162, 10, 107, 32);
+		panel.add(label);
 	}
 	public void close() {
 		this.dispose();

@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -22,12 +23,18 @@ public class GameMain extends JFrame {
 	private JLabel close;
 	private JLabel game1;
 	private UserInfoService userservice=new UserInfoService();
+
+	private int xx, yy;
+	private boolean isDraging = false;
+	
+	
 	public GameMain() {
 		this.setSize(800,600);
 		this.setLocationRelativeTo(null);
 		this.setUndecorated(true);
 		backgroudInit();
 		moreInit();
+		dragInit();
 		this.setVisible(true);
 	}
 	public void backgroudInit() {
@@ -98,5 +105,38 @@ public class GameMain extends JFrame {
 		integral.setLocation(601, 172);
 		bg.add(integral);
 	};
+	
+	
+	public void dragInit() {
+		this.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+
+				isDraging = true;
+
+				xx = e.getX();
+
+				yy = e.getY();
+			}
+
+			public void mouseReleased(MouseEvent e) {
+
+				isDraging = false;
+			}
+		});
+		this.addMouseMotionListener(new MouseMotionAdapter() {
+			public void mouseDragged(MouseEvent e) {
+
+				if (isDraging) {
+
+					int left = getLocation().x;
+
+					int top = getLocation().y;
+
+					setLocation(left + e.getX() - xx, top + e.getY() - yy);
+
+				}
+			}
+		});
+	}
 	
 }

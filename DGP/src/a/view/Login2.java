@@ -59,7 +59,7 @@ public class Login2 extends JFrame {
 		Font f=new Font("微软雅黑", 0, 14);
 		Color c=new Color(156, 157, 159);
 	
-		username=new JTextField("你好");
+		username=new JTextField();
 		
 		username.setFont(f);
 		username.setForeground(c);
@@ -121,8 +121,7 @@ public class Login2 extends JFrame {
 				if(x>10&&x<36 && y>475&&y<506) {
 					System.exit(0);
 				}else if(x>87&&x<347 && y>331&&y<375) {
-//					close();
-//					new Register().setVisible(true);
+					
 					
 					String usernamestr=username.getText().trim();
 					String passwordstr=password.getText().trim();
@@ -135,6 +134,9 @@ public class Login2 extends JFrame {
 						close();
 						new GameMain();
 					}
+				}else if(x>220&&x<320 && y>384&&y<408) {
+					close();
+					new Register().setVisible(true);
 				}
 			}
 			

@@ -153,9 +153,10 @@ public class Register2 extends JFrame {
 				int x=e.getX();
 				int y=e.getY();
 				if(x>398&&x<430 && y>6&&y<33) {
+					//右上角退出游戏
 					System.exit(0);
 				}else if(x>87&&x<347 && y>503&&y<547) {
-					
+					//登录按钮操作
 					String accountstr=account.getText().trim();
 					String usernamestr=username.getText().trim();
 					String emailstr=email.getText().trim();
@@ -188,9 +189,10 @@ public class Register2 extends JFrame {
 					}else {
 						JOptionPane.showMessageDialog(getThis(), "用户名存在", "警告", JOptionPane.ERROR_MESSAGE);
 					}
-				}else if(x>220&&x<320 && y>384&&y<408) {
+				}else if(x>220&&x<320 && y>558&&y<576) {
+					//登陆操作
 					close();
-					new Register().setVisible(true);
+					new Login2();
 				}
 			}
 			

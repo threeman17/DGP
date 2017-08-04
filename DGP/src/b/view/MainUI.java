@@ -74,7 +74,8 @@ public class MainUI extends JFrame{
 //		}
 		datas=Datas.getGameLevel();
 		GameInfoService gis=new GameInfoService("推箱子");
-		
+		System.out.println("人物是"+gis.getCurrentGameInfo().getCurrent_skin());
+		System.out.println("皮肤是"+gis.getCurrentGameInfo().getCurrent_box());
 		for (int i = 0; i < datas.length; i++) {
 			for (int j = 0; j < datas[i].length; j++) {
 				if(datas[i][j]==1) {
@@ -84,7 +85,7 @@ public class MainUI extends JFrame{
 					System.out.println("img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"3.png");
 					bg.add(hero.getJLabel());
 				}else if(datas[i][j]==3) {
-					JLabel temp=new Box(j, i, "img/box"+gis.getCurrentGameInfo().getCurrent_skin()+".png").getJLabel();
+					JLabel temp=new Box(j, i, "img/box"+gis.getCurrentGameInfo().getCurrent_box()+".png").getJLabel();
 					boxs[i][j]=temp;
 					bg.add(temp);
 				}else if(datas[i][j]==4) {

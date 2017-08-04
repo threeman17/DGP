@@ -84,7 +84,7 @@ public class MainUI extends JFrame{
 					System.out.println("img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"3.png");
 					bg.add(hero.getJLabel());
 				}else if(datas[i][j]==3) {
-					JLabel temp=new Box(j, i, "img/sheep-no.png").getJLabel();
+					JLabel temp=new Box(j, i, "img/box"+gis.getCurrentGameInfo().getCurrent_skin()+".png").getJLabel();
 					boxs[i][j]=temp;
 					bg.add(temp);
 				}else if(datas[i][j]==4) {

@@ -149,7 +149,7 @@ public class GameMain extends JFrame {
 				int x=e.getX();
 				int y=e.getY();
 				if(x>150&&x<225 && y>328 && y<360) {
-					new Shop().setVisible(true);
+					new Shop2();
 				}else if(x>226&&x<336 && y>328 && y<360) {
 					new HistoryWindow(UserInfoDao.getUser().getAccount());
 				}else if(x>747&&x<800 && y>0 && y<50) {

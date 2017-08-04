@@ -2,9 +2,11 @@ package a.dao;
 
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import a.bean.UserInfo;
 import a.utils.DataSourceUtils;
@@ -64,6 +66,20 @@ public class UserInfoDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+		}
+		
+		/**
+		 * 游戏巅峰榜
+		 * @return List<UserInfo>
+		 * @throws SQLException
+		 */
+		public static List<UserInfo> selrank() throws SQLException
+		{
+			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
+			String sql="select * from userinfo order by xp desc";
+			List<UserInfo> ls=null;
+			ls=qr.query(sql,new BeanListHandler<UserInfo>(UserInfo.class));
+			return ls;
 		}
 		
 		public  static  UserInfo getUser() {

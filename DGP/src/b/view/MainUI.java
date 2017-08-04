@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.io.IOException;
 import java.util.LinkedList;
 
@@ -35,6 +36,13 @@ public class MainUI extends JFrame{
 	public MainUI main;
 //	Map<Integer, Integer> des=new HashMap<Integer, Integer>();
 	LinkedList<Integer> des=new LinkedList<Integer>();
+	
+	
+	private int xx, yy;
+	private boolean isDraging = false;
+	
+	GamePlayHistoryService gphs=new GamePlayHistoryService();
+	int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子");
 	public MainUI() {
 		backgroudInit();
 		heroInit();
@@ -45,9 +53,11 @@ public class MainUI extends JFrame{
 	public void mainUIInit() {
 		this.setLayout(null);
 		this.setTitle("推箱子");
-		this.setSize(816, 640);
+		this.setSize(800, 600);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLocationRelativeTo(null);
+		this.setUndecorated(true);
+		this.dragInit();
 		this.setVisible(true);
 		
 	}
@@ -55,7 +65,7 @@ public class MainUI extends JFrame{
 		bg = new JPanel() {  
             @Override  
             protected void paintComponent(Graphics g) {  
-                ImageIcon icon = new ImageIcon("img/bg.png");  
+                ImageIcon icon = new ImageIcon("img/bg"+level+".jpg");  
                 Image img = icon.getImage();  
                 g.drawImage(img, 0, 0, icon.getIconWidth(), icon.getIconHeight(), icon.getImageObserver());  
                   
@@ -79,7 +89,7 @@ public class MainUI extends JFrame{
 		for (int i = 0; i < datas.length; i++) {
 			for (int j = 0; j < datas[i].length; j++) {
 				if(datas[i][j]==1) {
-					bg.add(new Barrier(j, i, "img/tree.png").getJLabel());
+					bg.add(new Barrier(j, i, "img/ob"+level+".png").getJLabel());
 				}else if(datas[i][j]==2) {
 					hero=new Hero(j, i, "img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"3.png");
 					System.out.println("img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"3.png");
@@ -106,8 +116,7 @@ public class MainUI extends JFrame{
 	
 	public void DigInit() {
 		// 弹窗
-		GamePlayHistoryService gphs=new GamePlayHistoryService();
-		int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子");
+		
 		
 		if(level!=1) {
 			return;
@@ -157,5 +166,35 @@ public class MainUI extends JFrame{
 		victory.setVisible(true);
 	}
 	
-	
+	public void dragInit() {
+		this.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+
+				isDraging = true;
+
+				xx = e.getX();
+
+				yy = e.getY();
+			}
+
+			public void mouseReleased(MouseEvent e) {
+
+				isDraging = false;
+			}
+		});
+		this.addMouseMotionListener(new MouseMotionAdapter() {
+			public void mouseDragged(MouseEvent e) {
+
+				if (isDraging) {
+
+					int left = getLocation().x;
+
+					int top = getLocation().y;
+
+					setLocation(left + e.getX() - xx, top + e.getY() - yy);
+
+				}
+			}
+		});
+	}
 }

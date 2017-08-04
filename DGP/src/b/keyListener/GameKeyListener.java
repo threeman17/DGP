@@ -14,6 +14,7 @@ import a.dao.UserInfoDao;
 import a.service.GameInfoService;
 import a.service.GamePlayHistoryService;
 import a.service.UserInfoService;
+import a.view.GameMain;
 import b.datas.Datas;
 import b.model.Box;
 import b.model.Hero;
@@ -65,6 +66,13 @@ public class GameKeyListener extends KeyAdapter{
 		// TODO Auto-generated method stub
 		super.keyPressed(e);
 		int key = e.getKeyCode();
+		if(key==27) {
+			int n=JOptionPane.showConfirmDialog(StartAPP.main, "您确认要退出游戏吗？","提示信息",JOptionPane.YES_NO_OPTION);
+			if(n==0) {
+				StartAPP.main.dispose();
+				new GameMain();
+			}
+		}
 		if(key == 39) {
 			hero.setHeroPic("img/0"+gis.getCurrentGameInfo().getCurrent_skin()+"2.png");
 			if(datas[y][x+1]==1) {
@@ -248,10 +256,12 @@ public class GameKeyListener extends KeyAdapter{
 						int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子")+1;
 						new GamePlayHistoryService().insGamePlayHistory("推箱子", currentDate, GameTime, integral, 0, integral, 0,level );
 						uis.upduser(UserInfoDao.getUser().getAccount(), integral, integral);
-						int n = JOptionPane.showConfirmDialog(null, "在"+GameTime+"秒拿到了"+integral+"经验。需要继续下一关吗?", "恭喜"+uis.getUserNickName()+"获得了胜利",JOptionPane.YES_NO_OPTION);//i=0/1  
+						int n = JOptionPane.showConfirmDialog(StartAPP.main, "在"+GameTime+"秒拿到了"+integral+"经验。需要继续下一关吗?", "恭喜"+uis.getUserNickName()+"获得了胜利",JOptionPane.YES_NO_OPTION);//i=0/1  
 						StartAPP.close();
 						if(n==0) {
 							StartAPP.start();
+						}else {
+							new GameMain();
 						}
 						
 //						new MainUI();
@@ -260,5 +270,5 @@ public class GameKeyListener extends KeyAdapter{
 			}
 		}
 	}
-
+	
 }

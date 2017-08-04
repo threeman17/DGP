@@ -159,6 +159,7 @@ public class GameMain extends JFrame {
 					}
 				}else if(x>25&&x<195 && y>383 && y<558) {
 					//推箱子启动
+					getThis().dispose();
 					StartAPP.start();
 				}else if(x>390&&x<463 && y>328 && y<360) {
 					//全球记录

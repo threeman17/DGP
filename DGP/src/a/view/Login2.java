@@ -139,7 +139,7 @@ public class Login2 extends JFrame {
 					}
 				}else if(x>220&&x<320 && y>384&&y<408) {
 					close();
-					new Register().setVisible(true);
+					new Register2();
 				}
 			}
 			

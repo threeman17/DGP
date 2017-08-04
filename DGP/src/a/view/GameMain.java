@@ -53,30 +53,30 @@ public class GameMain extends JFrame {
         this.add(bg);
 	}
 	public void moreInit() {
-		close=new JLabel(new ImageIcon("img/close.png"));
-		close.setLocation(745, 0);
-		close.setSize(54,53);
-		
-		bg.add(close);
-		close.addMouseListener(new MouseAdapter(){
-			public void mousePressed(MouseEvent e) {
-				int n=JOptionPane.showConfirmDialog(null, "您确定要退出游戏平台吗","提示信息",JOptionPane.YES_NO_OPTION);
-				if(n==0) {
-					System.exit(0);
-				}
-			};
-		});
-		
-		game1=new JLabel(new ImageIcon("img/game1.png"));
-		game1.setSize(232,256);
-		game1.setLocation(0, 335);
-		bg.add(game1);
-		
-		game1.addMouseListener(new MouseAdapter(){
-			public void mousePressed(MouseEvent e) {
-				StartAPP.start();
-			};
-		});
+//		close=new JLabel(new ImageIcon("img/close.png"));
+//		close.setLocation(745, 0);
+//		close.setSize(54,53);
+//		
+//		bg.add(close);
+//		close.addMouseListener(new MouseAdapter(){
+//			public void mousePressed(MouseEvent e) {
+//				int n=JOptionPane.showConfirmDialog(getThis(), "您确定要退出游戏平台吗","提示信息",JOptionPane.YES_NO_OPTION);
+//				if(n==0) {
+//					System.exit(0);
+//				}
+//			};
+//		});
+//		
+//		game1=new JLabel(new ImageIcon("img/game1.png"));
+//		game1.setSize(232,256);
+//		game1.setLocation(0, 335);
+//		bg.add(game1);
+//		
+//		game1.addMouseListener(new MouseAdapter(){
+//			public void mousePressed(MouseEvent e) {
+//				StartAPP.start();
+//			};
+//		});
 		
 		//用户名label
 		JLabel username=new JLabel(userservice.getUserNickName(),JLabel.CENTER);
@@ -149,13 +149,22 @@ public class GameMain extends JFrame {
 				int x=e.getX();
 				int y=e.getY();
 				if(x>150&&x<225 && y>328 && y<360) {
-					System.out.println("点中了");
+					new Shop();
 				}else if(x>226&&x<336 && y>328 && y<360) {
 					new HistoryWindow(UserInfoDao.getUser().getAccount());
+				}else if(x>747&&x<800 && y>0 && y<50) {
+					int n=JOptionPane.showConfirmDialog(getThis(), "您确定要退出游戏平台吗","提示信息",JOptionPane.YES_NO_OPTION);
+					if(n==0) {
+						System.exit(0);
+					}
+				}else if(x>25&&x<195 && y>383 && y<558) {
+					StartAPP.start();
 				}
 			}
 			
 		});
 	}
-	
+	public GameMain getThis() {
+		return this;
+	}
 }

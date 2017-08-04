@@ -103,7 +103,7 @@ public class HistoryWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//退出程序
-				System.exit(0);
+				close();
 			}
 		});
 		//初始化内容面板
@@ -148,7 +148,9 @@ public class HistoryWindow extends JFrame {
 		contentPanel.add(JP);
 		this.setVisible(true);
 	}
-	
+	public void close(){
+		this.dispose();
+	}
 	
 	
 }

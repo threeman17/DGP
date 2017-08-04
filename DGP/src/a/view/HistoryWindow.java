@@ -35,8 +35,8 @@ public class HistoryWindow extends JFrame {
 	private JButton close;
 	private Font font=new Font("平体",Font.BOLD,24);
 	private JPanel contentPanel;
-	private String [] his={"游戏记录ID",
-			"账号",
+	private String [] his={
+		
 			"游戏名称",
 			"开始游戏时间",
 			"游戏时长",
@@ -132,7 +132,7 @@ public class HistoryWindow extends JFrame {
 		}
 		 for(int i=0;i<list.size();i++) 
 		  { 
-			 Object[] rowdata={list.get(i).getGamePlay_id(),list.get(i).getAccount(),
+			 Object[] rowdata={
 					 			list.get(i).getGame_name(),list.get(i).getStart_time(),list.get(i).getPlay_min(),
 					 			list.get(i).getIntegral_get(),list.get(i).getIntergral_get_factor(),
 					 			list.get(i).getXp_get(),list.get(i).getXp_gain_factor(),list.get(i).getRecord()

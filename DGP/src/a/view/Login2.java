@@ -28,7 +28,7 @@ public class Login2 extends JFrame {
 	private JTextField username;
 	private JPasswordField password;
 	Login2() {
-		this.setSize(438, 509);
+		this.setSize(438, 475);
 		this.setUndecorated(true);
 		this.setLocationRelativeTo(null);
 		backgroudInit();
@@ -48,7 +48,7 @@ public class Login2 extends JFrame {
 
 			}
 		};
-		bg.setSize(800, 600);
+		bg.setSize(438, 475);
 		bg.setLayout(null);
 		this.add(bg);
 	}
@@ -118,18 +118,21 @@ public class Login2 extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				int x=e.getX();
 				int y=e.getY();
-				if(x>10&&x<36 && y>475&&y<506) {
+				if(x>398&&x<430 && y>6&&y<33) {
 					System.exit(0);
 				}else if(x>87&&x<347 && y>331&&y<375) {
 					
 					
 					String usernamestr=username.getText().trim();
 					String passwordstr=password.getText().trim();
-					
+					if(usernamestr.equals("")||passwordstr.equals("")) {
+						JOptionPane.showMessageDialog(getThis(), "账号或者密码不能为空", "警告", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
 					UserInfoService user=new UserInfoService();
 					boolean isUser=user.login(usernamestr,passwordstr);
 					if(!isUser) {
-						JOptionPane.showMessageDialog(null, "账号或者密码错误", "警告", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(getThis(), "账号或者密码错误", "警告", JOptionPane.ERROR_MESSAGE);
 					}else {
 						close();
 						new GameMain();
@@ -144,6 +147,9 @@ public class Login2 extends JFrame {
 	}
 	public void close() {
 		this.dispose();
+	}
+	public Login2 getThis(){
+		return this;
 	}
 	public static void main(String[] args) {
 		new Login2();

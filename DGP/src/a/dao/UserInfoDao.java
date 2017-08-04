@@ -76,7 +76,7 @@ public class UserInfoDao {
 		public static List<UserInfo> selrank() throws SQLException
 		{
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
-			String sql="select * from userinfo order by xp desc";
+			String sql="select * from userinfo order by xp desc limit 100";
 			List<UserInfo> ls=null;
 			ls=qr.query(sql,new BeanListHandler<UserInfo>(UserInfo.class));
 			return ls;

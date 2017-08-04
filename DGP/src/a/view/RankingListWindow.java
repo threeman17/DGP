@@ -134,7 +134,7 @@ public class RankingListWindow extends JFrame {
 			 Object[] rowdata={
 					 			list.get(i).getAccount(),list.get(i).getNick_name(),
 					 			list.get(i).getIntegral(),
-					 			(int)list.get(i).getXp()/100
+					 			(int)list.get(i).getXp()/1000
 					 			};
 			 listRe.addRow(rowdata);
 		} 

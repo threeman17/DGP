@@ -86,6 +86,21 @@ public class MainUI extends JFrame{
 		GameInfoService gis=new GameInfoService("推箱子");
 		System.out.println("人物是"+gis.getCurrentGameInfo().getCurrent_skin());
 		System.out.println("皮肤是"+gis.getCurrentGameInfo().getCurrent_box());
+		
+		
+		for(int i=0;i<datas.length;i++) {
+			for (int j = 0; j < datas[i].length; j++) {
+				if(datas[i][j]==4) {
+					bg.add(new Destination(j, i, "img/target.png").getJLabel());
+//					des.put(i, j);
+					des.add(i);
+					des.add(j);
+					System.out.println(des);
+				}
+			}
+		}
+		
+		
 		for (int i = 0; i < datas.length; i++) {
 			for (int j = 0; j < datas[i].length; j++) {
 				if(datas[i][j]==1) {
@@ -98,15 +113,19 @@ public class MainUI extends JFrame{
 					JLabel temp=new Box(j, i, "img/box"+gis.getCurrentGameInfo().getCurrent_box()+".png").getJLabel();
 					boxs[i][j]=temp;
 					bg.add(temp);
-				}else if(datas[i][j]==4) {
-					bg.add(new Destination(j, i, "img/target.png").getJLabel());
-//					des.put(i, j);
-					des.add(i);
-					des.add(j);
-					System.out.println(des);
 				}
+//				else if(datas[i][j]==4) {
+//					bg.add(new Destination(j, i, "img/target.png").getJLabel());
+////					des.put(i, j);
+//					des.add(i);
+//					des.add(j);
+//					System.out.println(des);
+//				}
 			}
 		}
+		
+		
+		
 	}
 	public void ag() {
 //		main.dispose();

@@ -183,6 +183,7 @@ public class Register2 extends JFrame {
 					if(!isUserExist) {
 						MailService.register(emailstr, usernamestr);
 						userService.register(accountstr, usernamestr, passwordstr,emailstr);
+						JOptionPane.showMessageDialog(getThis(), "恭喜！你已经注册成功，点击确认跳转登陆窗口", "提示", JOptionPane.PLAIN_MESSAGE);
 						close();
 						new Login2();
 						

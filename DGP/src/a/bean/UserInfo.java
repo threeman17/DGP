@@ -57,6 +57,7 @@ public class UserInfo {
 			final int prime = 31;
 			int result = 1;
 			result = prime * result + ((account == null) ? 0 : account.hashCode());
+			result = prime * result + ((email == null) ? 0 : email.hashCode());
 			result = prime * result + integral;
 			result = prime * result + ((nick_name == null) ? 0 : nick_name.hashCode());
 			result = prime * result + ((pass_word == null) ? 0 : pass_word.hashCode());
@@ -79,6 +80,11 @@ public class UserInfo {
 				if (other.account != null)
 					return false;
 			} else if (!account.equals(other.account))
+				return false;
+			if (email == null) {
+				if (other.email != null)
+					return false;
+			} else if (!email.equals(other.email))
 				return false;
 			if (integral != other.integral)
 				return false;
@@ -104,7 +110,8 @@ public class UserInfo {
 		@Override
 		public String toString() {
 			return "UserInfo [account=" + account + ", pass_word=" + pass_word + ", nick_name=" + nick_name
-					+ ", integral=" + integral + ", xp=" + xp + ", registration_date=" + registration_date + "]";
+					+ ", integral=" + integral + ", xp=" + xp + ", registration_date=" + registration_date + ", email="
+					+ email + "]";
 		}
 		
 }

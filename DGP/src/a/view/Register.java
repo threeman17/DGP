@@ -81,7 +81,7 @@ public class Register extends JFrame {
 				System.out.println(isUserExist);
 				
 				if(!isUserExist) {
-					userService.register(account, nickname, password);
+					userService.register(account, nickname, password,"cewin95@foxmail.com");
 					close();
 					new Login().setVisible(true);;
 				}else {

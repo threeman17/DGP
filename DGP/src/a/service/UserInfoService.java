@@ -1,6 +1,7 @@
 package a.service;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 import a.bean.UserInfo;
 import a.dao.UserInfoDao;
@@ -50,9 +51,10 @@ public class UserInfoService {
 	 * @param nickname
 	 * @param password
 	 */
-	public void register(String account,String nickname,String password) {
+	public void register(String account,String nickname,String password,String email) {
 		UserInfoDao userinfodao=new  UserInfoDao();
-		userinfodao.register(account, password, nickname);
+		
+		userinfodao.register(account, password, nickname,email,new Date());
 	}
 	/**
 	 * 修改用户的积分好经验

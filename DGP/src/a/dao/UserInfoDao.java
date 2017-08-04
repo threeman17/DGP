@@ -1,6 +1,7 @@
 package a.dao;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -23,11 +24,11 @@ public class UserInfoDao {
 
 		//注册
 
-		public static void register(String account,String pass_word,String nick_name){
+		public static void register(String account,String pass_word,String nick_name,String email,Date registration_date){
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
-			String sql="insert into userinfo(account,pass_word,nick_name) values(?,?,?)";
+			String sql="insert into userinfo(account,pass_word,nick_name,email,registration_date) values(?,?,?,?,?)";
 			try {
-				qr.update(sql,account,pass_word,nick_name);
+				qr.update(sql,account,pass_word,nick_name,email,registration_date);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

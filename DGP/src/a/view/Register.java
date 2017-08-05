@@ -1,28 +1,20 @@
 package a.view;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
-
 import a.service.UserInfoService;
-import a.service.UserInfoService;
-
 import javax.swing.JButton;
-import javax.swing.JSeparator;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.Toolkit;
-
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-import java.awt.SystemColor;
 
 public class Register extends JFrame {
 

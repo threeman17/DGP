@@ -231,6 +231,7 @@ public class GameKeyListener extends KeyAdapter{
 					count++;
 					if(count==des.size()/2) {
 						System.out.println("胜利了");
+						StartAPP.main.removeKeyListener(this);
 //						System.exit(0);
 //						MainUI.main.dispose();
 //						MainUI.ag();

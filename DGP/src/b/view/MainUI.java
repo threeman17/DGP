@@ -5,11 +5,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Label;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.Timer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -23,6 +25,7 @@ import a.service.GameInfoService;
 import a.service.GamePlayHistoryService;
 import b.datas.Datas;
 import b.keyListener.GameKeyListener;
+import b.keyListener.TimerDate;
 import b.model.Barrier;
 import b.model.Box;
 import b.model.Destination;
@@ -36,7 +39,7 @@ public class MainUI extends JFrame{
 	public MainUI main;
 //	Map<Integer, Integer> des=new HashMap<Integer, Integer>();
 	LinkedList<Integer> des=new LinkedList<Integer>();
-	
+	GameKeyListener gkl;
 	
 	private int xx, yy;
 	private boolean isDraging = false;
@@ -48,7 +51,9 @@ public class MainUI extends JFrame{
 		heroInit();
 		mainUIInit();
 		DigInit();
-		this.addKeyListener(new GameKeyListener(hero,boxs,des,main));
+		
+		gkl=new GameKeyListener(hero,boxs,des,main);
+		this.addKeyListener(gkl);
 	}
 	public void mainUIInit() {
 		this.setLayout(null);
@@ -58,6 +63,7 @@ public class MainUI extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setUndecorated(true);
 		this.dragInit();
+//		this.timerInit();
 		this.setVisible(true);
 		
 	}
@@ -215,5 +221,19 @@ public class MainUI extends JFrame{
 				}
 			}
 		});
+	}
+	
+	public void timerInit() {
+		
+		JLabel jl=new JLabel();
+		jl.setText("初始化");
+		jl.setSize(50,100);
+		jl.setLocation(10, 10);
+		jl.setFont(new Font("微软雅黑", 24, 24));
+		bg.add(jl);
+		
+		Timer t=new Timer();
+		
+		t.schedule(new TimerDate(StartAPP.main, gkl, jl, 5, t), 0,1000);
 	}
 }

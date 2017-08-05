@@ -13,6 +13,7 @@ import a.dao.UserInfoDao;
 import a.service.GamePlayHistoryService;
 import a.service.UserInfoService;
 import a.view.GameMain;
+import b.datas.GameTime;
 import b.view.StartAPP;
 
 public class TimerDate extends TimerTask{
@@ -66,6 +67,6 @@ public class TimerDate extends TimerTask{
 		
 		int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子");
 		
-		new GamePlayHistoryService().insGamePlayHistory("推箱子", new Date(), 0, 0, 0, 0, 0,level ,0);
+		new GamePlayHistoryService().insGamePlayHistory("推箱子", new Date(),GameTime.getGameTime(), 0, 0, 0, 0,level ,0);
 	}
 }

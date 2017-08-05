@@ -24,6 +24,7 @@ import a.dao.UserInfoDao;
 import a.service.GameInfoService;
 import a.service.GamePlayHistoryService;
 import b.datas.Datas;
+import b.datas.GameTime;
 import b.keyListener.GameKeyListener;
 import b.keyListener.TimerDate;
 import b.model.Barrier;
@@ -234,6 +235,6 @@ public class MainUI extends JFrame{
 		
 		Timer t=new Timer();
 		
-		t.schedule(new TimerDate(StartAPP.main, gkl, jl, 30, t), 0,1000);
+		t.schedule(new TimerDate(StartAPP.main, gkl, jl, GameTime.getGameTime(), t), 0,1000);
 	}
 }

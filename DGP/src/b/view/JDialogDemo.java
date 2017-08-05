@@ -49,7 +49,7 @@ public class JDialogDemo extends JFrame implements ActionListener {
 //             dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);  
 //             dialog.setSize(300, 200);  
 //             dialog.setVisible(true);  
-            new GameDialog(this);
+            new GameDialog(this,"img/alert1");
         }  
     }  
       

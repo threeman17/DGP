@@ -136,7 +136,7 @@ public class Login2 extends JFrame {
 					}else {
 						close();
 						GameMain gm=new GameMain();
-						new GameDialog(gm);
+						new GameDialog(gm,"img/alert1.jpg");
 					}
 				}else if(x>220&&x<320 && y>384&&y<408) {
 					close();

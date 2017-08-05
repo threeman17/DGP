@@ -139,13 +139,13 @@ public class MainUI extends JFrame{
 		// 弹窗
 		
 		
-		if(level!=1) {
-			return;
-		}
-		JDialog victory = new JDialog(this,"欢迎你来到推箱子游戏",true);
-		victory.setSize(400, 300);
-		victory.setLocationRelativeTo(null);
-		victory.setLayout(null);
+//		if(level!=1) {
+//			return;
+//		}
+//		JDialog victory = new JDialog(this,"欢迎你来到推箱子游戏",true);
+//		victory.setSize(400, 300);
+//		victory.setLocationRelativeTo(null);
+//		victory.setLayout(null);
 		
 //		JLabel info = new JLabel(new ImageIcon("gg.jpg"));
 //		info.setBounds(2, 2, 380, 180);
@@ -171,20 +171,23 @@ public class MainUI extends JFrame{
 //		username.setSize(315, 35);
 //		username.setLocation(20, 88);
 //		bg.add(username);
-		String str="推箱子是一个来自日本的古老游戏，"
-				+ "目的是在训练你的逻辑思考能力。在一个狭小的仓库中，"
-				+ "要求把木箱放到指定的位置，"
-				+ "稍不小心就会出现箱子无法移动或者通道被堵住的情况，"
-				+ "所以需要巧妙的利用有限的空间和通道，合理安排移动的次序和位置，"
-				+ "才能顺利的完成任务。我们会根据你的移动的步数和事件来计算最后的积分与经验，祝你好运！";
-		JTextArea info=new JTextArea(str);
-		info.setSize(380,180);
-		info.setFont(new Font("微软雅黑", 0, 14));
-		info.setLineWrap(true);
-		info.setEditable(false);
-		info.setOpaque(false);
-		victory.add(info);
-		victory.setVisible(true);
+//		String str="推箱子是一个来自日本的古老游戏，"
+//				+ "目的是在训练你的逻辑思考能力。在一个狭小的仓库中，"
+//				+ "要求把木箱放到指定的位置，"
+//				+ "稍不小心就会出现箱子无法移动或者通道被堵住的情况，"
+//				+ "所以需要巧妙的利用有限的空间和通道，合理安排移动的次序和位置，"
+//				+ "才能顺利的完成任务。我们会根据你的移动的步数和事件来计算最后的积分与经验，祝你好运！";
+//		JTextArea info=new JTextArea(str);
+//		info.setSize(380,180);
+//		info.setFont(new Font("微软雅黑", 0, 14));
+//		info.setLineWrap(true);
+//		info.setEditable(false);
+//		info.setOpaque(false);
+//		victory.add(info);
+//		victory.setVisible(true);
+		
+		
+		new GameDialog(this, "img/txz"+level+".jpg");
 	}
 	
 	public void dragInit() {

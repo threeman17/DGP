@@ -23,8 +23,10 @@ public class GameDialog extends JDialog {
 	
 	private JFrame jf;
 	private JPanel bg;
-	public GameDialog(JFrame jf) {
+	private String src;
+	public GameDialog(JFrame jf,String src) {
 		this.jf=jf;
+		this.src=src;
 		setSize(276,351);
 		setUndecorated(true);
 		localInit();
@@ -67,6 +69,9 @@ public class GameDialog extends JDialog {
 	}
 	
 	public void localInit() {
+		if(jf==null) {
+			return;
+		}
 		Point point;
 	    point = jf.getLocation();//获得主窗体在屏幕的坐标
 	      this.setLocation(
@@ -79,7 +84,7 @@ public class GameDialog extends JDialog {
 		bg = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
-				ImageIcon icon = new ImageIcon("img/alert1.jpg");
+				ImageIcon icon = new ImageIcon(src);
 				Image img = icon.getImage();
 				g.drawImage(img, 0, 0, icon.getIconWidth(), icon.getIconHeight(), icon.getImageObserver());
 

@@ -15,12 +15,12 @@ public class DataSourceUtils {
 
 	private static ThreadLocal<Connection> tl = new ThreadLocal<Connection>();
 
-	// Ö±½Ó¿ÉÒÔ»ñÈ¡Ò»¸öÁ¬½Ó³Ø
+	// ç›´æ¥å¯ä»¥è·å–ä¸€ä¸ªè¿æ¥æ± 
 	public static DataSource getDataSource() {
 		return dataSource;
 	}
 
-	// »ñÈ¡Á¬½Ó¶ÔÏó
+	// è·å–è¿æ¥å¯¹è±¡
 	public static Connection getConnection() throws SQLException {
 
 		Connection con = tl.get();
@@ -31,7 +31,7 @@ public class DataSourceUtils {
 		return con;
 	}
 
-	// ¿ªÆôÊÂÎñ
+	// å¼€å¯äº‹åŠ¡
 	public static void startTransaction() throws SQLException {
 		Connection con = getConnection();
 		if (con != null) {
@@ -39,7 +39,7 @@ public class DataSourceUtils {
 		}
 	}
 
-	// ÊÂÎñ»Ø¹ö
+	// äº‹åŠ¡å›æ»š
 	public static void rollback() throws SQLException {
 		Connection con = getConnection();
 		if (con != null) {
@@ -47,17 +47,17 @@ public class DataSourceUtils {
 		}
 	}
 
-	// Ìá½»²¢ÇÒ ¹Ø±Õ×ÊÔ´¼°´ÓThreadLocallÖĞÊÍ·Å
+	// æäº¤å¹¶ä¸” å…³é—­èµ„æºåŠä»ThreadLocallä¸­é‡Šæ”¾
 	public static void commitAndRelease() throws SQLException {
 		Connection con = getConnection();
 		if (con != null) {
-			con.commit(); // ÊÂÎñÌá½»
-			con.close();// ¹Ø±Õ×ÊÔ´
-			tl.remove();// ´ÓÏß³Ì°ó¶¨ÖĞÒÆ³ı
+			con.commit(); // äº‹åŠ¡æäº¤
+			con.close();// å…³é—­èµ„æº
+			tl.remove();// ä»çº¿ç¨‹ç»‘å®šä¸­ç§»é™¤
 		}
 	}
 
-	// ¹Ø±Õ×ÊÔ´·½·¨
+	// å…³é—­èµ„æºæ–¹æ³•
 	public static void closeConnection() throws SQLException {
 		Connection con = getConnection();
 		if (con != null) {

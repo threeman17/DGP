@@ -1,14 +1,11 @@
 package b.keyListener;
 
-import java.awt.event.KeyAdapter;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import a.dao.UserInfoDao;
 import a.service.GamePlayHistoryService;
 import a.service.UserInfoService;

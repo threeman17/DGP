@@ -234,6 +234,6 @@ public class MainUI extends JFrame{
 		
 		Timer t=new Timer();
 		
-		t.schedule(new TimerDate(StartAPP.main, gkl, jl, 5, t), 0,1000);
+		t.schedule(new TimerDate(StartAPP.main, gkl, jl, 30, t), 0,1000);
 	}
 }

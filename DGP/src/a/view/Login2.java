@@ -17,6 +17,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import a.service.UserInfoService;
+import b.view.GameDialog;
 
 
 
@@ -135,7 +136,8 @@ public class Login2 extends JFrame {
 						JOptionPane.showMessageDialog(getThis(), "账号或者密码错误", "警告", JOptionPane.ERROR_MESSAGE);
 					}else {
 						close();
-						new GameMain();
+						GameMain gm=new GameMain();
+						new GameDialog(gm);
 					}
 				}else if(x>220&&x<320 && y>384&&y<408) {
 					close();

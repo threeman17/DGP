@@ -4,11 +4,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Date;
 import java.util.List;
-
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
 
 import a.dao.UserInfoDao;
 import a.service.GameInfoService;
@@ -16,7 +14,6 @@ import a.service.GamePlayHistoryService;
 import a.service.UserInfoService;
 import a.view.GameMain;
 import b.datas.Datas;
-import b.model.Box;
 import b.model.Hero;
 import b.view.MainUI;
 import b.view.StartAPP;

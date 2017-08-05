@@ -1,7 +1,7 @@
 package b.model;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+
 
 public class Hero extends Sprite {
 

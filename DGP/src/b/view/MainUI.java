@@ -1,15 +1,11 @@
 package b.view;
 
-
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Label;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Timer;
 
@@ -19,7 +15,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-
 import a.dao.UserInfoDao;
 import a.service.GameInfoService;
 import a.service.GamePlayHistoryService;

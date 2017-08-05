@@ -17,7 +17,7 @@ public class TimerDate extends TimerTask{
 	GameKeyListener gkl;
 	JLabel jl;
 	int time;
-	Timer timer;
+	static Timer timer;
 	public TimerDate(JFrame jf,GameKeyListener gkl,JLabel jl,int time,Timer timer){
 		this.jf=jf;
 		this.gkl=gkl;
@@ -51,5 +51,9 @@ public class TimerDate extends TimerTask{
 			new GameMain();
 		}
 		System.out.println(n);
+	}
+	public static Timer getTimer() {
+		return timer;
+		
 	}
 }

@@ -12,6 +12,13 @@ public class GamePlayHistory {
 		public int record;
 		public double xp_gain_factor;
 		public int xp_get;
+		public int result;
+		public int getResult() {
+			return result;
+		}
+		public void setResult(int result) {
+			this.result = result;
+		}
 		public int getGameplay_id() {
 			return gameplay_id;
 		}

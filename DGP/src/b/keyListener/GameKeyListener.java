@@ -255,8 +255,10 @@ public class GameKeyListener extends KeyAdapter{
 						
 						UserInfoService uis=new UserInfoService();
 						GamePlayHistoryService gphs=new GamePlayHistoryService();
+						
 						int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子")+1;
-						new GamePlayHistoryService().insGamePlayHistory("推箱子", currentDate, GameTime, integral, 0, integral, 0,level );
+						
+						new GamePlayHistoryService().insGamePlayHistory("推箱子", currentDate, GameTime, integral, 0, integral, 0,level ,1);
 						uis.upduser(UserInfoDao.getUser().getAccount(), integral, integral);
 						int n = JOptionPane.showConfirmDialog(StartAPP.main, "在"+GameTime+"秒拿到了"+integral+"经验。需要继续下一关吗?", "恭喜"+uis.getUserNickName()+"获得了胜利",JOptionPane.YES_NO_OPTION);//i=0/1  
 						StartAPP.close();

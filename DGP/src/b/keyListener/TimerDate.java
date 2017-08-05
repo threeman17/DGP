@@ -1,6 +1,7 @@
 package b.keyListener;
 
 import java.awt.event.KeyAdapter;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -9,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import a.dao.UserInfoDao;
+import a.service.GamePlayHistoryService;
+import a.service.UserInfoService;
 import a.view.GameMain;
 import b.view.StartAPP;
 
@@ -39,6 +42,7 @@ public class TimerDate extends TimerTask{
 		
 		if(time==0) {
 			showMess();
+			setGamePlayHistory();
 		}
 	}
 	public void showMess() {
@@ -55,5 +59,13 @@ public class TimerDate extends TimerTask{
 	public static Timer getTimer() {
 		return timer;
 		
+	}
+	public void setGamePlayHistory() {
+		UserInfoService uis=new UserInfoService();
+		GamePlayHistoryService gphs=new GamePlayHistoryService();
+		
+		int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子");
+		
+		new GamePlayHistoryService().insGamePlayHistory("推箱子", new Date(), 0, 0, 0, 0, 0,level ,0);
 	}
 }

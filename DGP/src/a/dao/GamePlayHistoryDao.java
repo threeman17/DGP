@@ -70,12 +70,12 @@ public class GamePlayHistoryDao {
 			String sql="insert into gameplayhistory set "
 					+ "account=?,game_name=?,gameplay_id=?,"
 					+ "integral_get=?,play_min=?,record=?,"
-					+ "xp_gain_factor=?,integral_gain_factor=?,start_time=?,xp_get=?";
+					+ "xp_gain_factor=?,integral_gain_factor=?,start_time=?,xp_get=?,result=?";
 			try {
 				qr.update(sql, g.getAccount(),g.getGame_name(),g.getGamePlay_id(),
 							g.getIntegral_get(),g.getPlay_min(),g.getRecord(),
 							g.getXp_gain_factor(),g.getIntegral_gain_factor(),
-							g.getStart_time(),g.getXp_get());
+							g.getStart_time(),g.getXp_get(),g.getResult());
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

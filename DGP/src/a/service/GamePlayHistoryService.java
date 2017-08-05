@@ -20,7 +20,7 @@ public class GamePlayHistoryService {
 	 * @param xp_factor
 	 * @param record
 	 */
-	public void insGamePlayHistory(String game_name,Date start_time,int play_min,int integral,double integral_factor,int xp,double xp_factor,int record) {
+	public void insGamePlayHistory(String game_name,Date start_time,int play_min,int integral,double integral_factor,int xp,double xp_factor,int record,int result) {
 		GamePlayHistory gph=new GamePlayHistory();
 		
 		gph.setAccount(UserInfoDao.getUser().getAccount());
@@ -32,6 +32,7 @@ public class GamePlayHistoryService {
 		gph.setXp_get(xp);
 		gph.setXp_gain_factor(xp_factor);
 		gph.setRecord(record);
+		gph.setResult(result);
 		
 		new GamePlayHistoryDao().insGamePlayHistory(gph);;
 	}

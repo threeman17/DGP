@@ -105,6 +105,10 @@ public class GameDialog extends JDialog {
 				int y=e.getY();
 				if(x>0&&x<276 && y>300&&y<351) {
 					jd.dispose();
+					if(StartAPP.main!=null) {
+
+						StartAPP.main.timerInit();
+					}
 				}
 			}
 			

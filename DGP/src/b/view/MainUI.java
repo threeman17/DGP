@@ -1,5 +1,6 @@
 package b.view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -36,6 +37,7 @@ public class MainUI extends JFrame{
 //	Map<Integer, Integer> des=new HashMap<Integer, Integer>();
 	LinkedList<Integer> des=new LinkedList<Integer>();
 	GameKeyListener gkl;
+	JLabel timetext;
 	
 	private int xx, yy;
 	private boolean isDraging = false;
@@ -76,6 +78,8 @@ public class MainUI extends JFrame{
         bg.setSize(800,600);
         bg.setLayout(null);
         this.add(bg);
+
+		timerText();
 	}
 	public void heroInit() {
 		System.out.println("初始化");
@@ -224,15 +228,22 @@ public class MainUI extends JFrame{
 	
 	public void timerInit() {
 		
-		JLabel jl=new JLabel();
-		jl.setText("初始化");
-		jl.setSize(50,100);
-		jl.setLocation(10, 10);
-		jl.setFont(new Font("微软雅黑", 24, 24));
-		bg.add(jl);
+		
 		
 		Timer t=new Timer();
 		
-		t.schedule(new TimerDate(StartAPP.main, gkl, jl, GameTime.getGameTime(), t), 0,1000);
+		t.schedule(new TimerDate(StartAPP.main, gkl, timetext, GameTime.getGameTime(), t), 0,1000);
+	}
+	
+	public void timerText() {
+		timetext=new JLabel();
+		Color c=new Color(105, 214, 213);
+		int time=GameTime.getGameTime();
+		timetext.setText("剩余时间："+time+"秒");
+		timetext.setSize(200,30);
+		timetext.setLocation(10, 10);
+		timetext.setFont(new Font("微软雅黑", 0, 24));
+		timetext.setForeground(c);
+		bg.add(timetext);
 	}
 }

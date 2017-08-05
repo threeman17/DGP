@@ -9,7 +9,6 @@ public class StartAPP {
 			TimerDate.getTimer().cancel();
 		}
 		main=new MainUI();
-		main.timerInit();
 	}
 	public static void close() {
 		main.dispose();

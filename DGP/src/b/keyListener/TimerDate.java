@@ -36,7 +36,7 @@ public class TimerDate extends TimerTask{
 			timer.cancel();
 			
 		}
-		jl.setText(String.valueOf(time));
+		jl.setText("剩余时间："+String.valueOf(time)+"秒");
 		
 		if(time==0) {
 			showMess();

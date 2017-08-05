@@ -15,6 +15,7 @@ import a.service.UserInfoService;
 import a.view.GameMain;
 import b.datas.Datas;
 import b.model.Hero;
+import b.view.GameDialog;
 import b.view.MainUI;
 import b.view.StartAPP;
 
@@ -67,6 +68,7 @@ public class GameKeyListener extends KeyAdapter{
 			int n=JOptionPane.showConfirmDialog(StartAPP.main, "您确认要退出游戏吗？","提示信息",JOptionPane.YES_NO_OPTION);
 			if(n==0) {
 				StartAPP.main.dispose();
+				TimerDate.getTimer().cancel();
 				new GameMain();
 			}
 		}

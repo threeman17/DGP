@@ -45,6 +45,7 @@ public class HistoryWindow extends JFrame {
 			"获得经验",
 			"经验加成",
 			"最高记录",
+			"是否通关"
 			};
 	private List<GamePlayHistory> list=new ArrayList<GamePlayHistory>();
 	
@@ -131,12 +132,15 @@ public class HistoryWindow extends JFrame {
 			e.printStackTrace();
 		}
 		 for(int i=0;i<list.size();i++) 
-		  { 
+		  { 		
+			 String bool=null;
+			 if(list.get(i).getResult()==1){bool="是";}
+			 else{bool="否";}
 			 Object[] rowdata={
 					 			list.get(i).getGame_name(),list.get(i).getStart_time(),list.get(i).getPlay_min(),
 					 			list.get(i).getIntegral_get(),list.get(i).getIntergral_get_factor(),
-					 			list.get(i).getXp_get(),list.get(i).getXp_gain_factor(),list.get(i).getRecord()
-					 			
+					 			list.get(i).getXp_get(),list.get(i).getXp_gain_factor(),list.get(i).getRecord(),
+					 			bool
 					 			};
 			 listRe.addRow(rowdata);
 		} 

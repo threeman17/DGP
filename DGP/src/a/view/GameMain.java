@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import a.dao.UserInfoDao;
+import a.service.GamePlayHistoryService;
 import a.service.UserInfoService;
 import b.view.StartAPP;
 
@@ -79,9 +80,10 @@ public class GameMain extends JFrame {
 //		});
 		
 		//用户名label
+		Color userColor=new Color(141, 231, 252);
 		JLabel username=new JLabel(userservice.getUserNickName(),JLabel.CENTER);
 		username.setFont(new Font("微软雅黑", 0, 24));
-		username.setForeground(Color.cyan);
+		username.setForeground(userColor);
 		username.setSize(315, 35);
 		username.setLocation(20, 88);
 		bg.add(username);
@@ -158,9 +160,15 @@ public class GameMain extends JFrame {
 						System.exit(0);
 					}
 				}else if(x>25&&x<195 && y>383 && y<558) {
+					int level=new GamePlayHistoryService().selrecord(UserInfoDao.getUser().getAccount(), "推箱子");
 					//推箱子启动
-					getThis().dispose();
-					StartAPP.start();
+					if(level<5) {
+						getThis().dispose();
+						StartAPP.start();
+					}else {
+						JOptionPane.showMessageDialog(getThis(), "您已经通关啦！", "警告", JOptionPane.ERROR_MESSAGE);
+					}
+					
 				}else if(x>390&&x<463 && y>328 && y<360) {
 					//全球记录
 					new RankingListWindow();

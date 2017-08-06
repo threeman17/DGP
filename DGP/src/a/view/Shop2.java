@@ -110,10 +110,11 @@ public class Shop2 extends JFrame {
 					}
 				}else if(x>770&&x<800 && y>0 && y<28) {
 					//右上角退出
-					int n=JOptionPane.showConfirmDialog(getThis(), "您确定要退出个人仓库吗","提示信息",JOptionPane.YES_NO_OPTION);
-					if(n==0) {
-						getThis().dispose();
-					}
+//					int n=JOptionPane.showConfirmDialog(getThis(), "您确定要退出个人仓库吗","提示信息",JOptionPane.YES_NO_OPTION);
+//					if(n==0) {
+//						getThis().dispose();
+//					}
+					getThis().dispose();
 				}else if(x>30&&x<120 &&y>533 && y<560) {
 					//恶煞白虎
 					if(level<5) {

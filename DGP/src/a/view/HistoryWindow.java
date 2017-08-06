@@ -7,8 +7,10 @@ import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -24,6 +27,9 @@ import javax.swing.table.DefaultTableModel;
 
 import a.bean.GamePlayHistory;
 import a.dao.GamePlayHistoryDao;
+import a.dao.UserInfoDao;
+import a.service.UserInfoService;
+import b.view.GameDialog;
 
 public class HistoryWindow extends JFrame {
 	/**
@@ -94,6 +100,10 @@ public class HistoryWindow extends JFrame {
 						}
 					}
 				});
+				
+			
+				
+				
 		//窗口标题
 		title=new JLabel(this.getTitle(),JLabel.CENTER);
 		title.setFont(font);
@@ -103,10 +113,21 @@ public class HistoryWindow extends JFrame {
 		close.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+			
+				int n=JOptionPane.showConfirmDialog(getThis(), "试试使用高级查询吧","提示信息",JOptionPane.YES_NO_OPTION);
+				if(n==0) {
+					try {
+						Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://localhost:8080/DGPWeb/loginServlet?username="+UserInfoDao.getUser().getAccount()+"&password="+UserInfoDao.getUser().getPass_word()+"");
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
 				//退出程序
 				close();
 			}
 		});
+		
+		
 		//初始化内容面板
 		contentPanel=new JPanel();
 		contentPanel.setBounds(0, titlePanel.getY()+titlePanel.getHeight(), this.getWidth(), this.getHeight()-(titlePanel.getY()+titlePanel.getHeight()));
@@ -158,5 +179,28 @@ public class HistoryWindow extends JFrame {
 		this.dispose();
 	}
 	
+	public HistoryWindow getThis() {
+		return this;
+	}
 	
+	public void checkClick() {
+		this.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int x=e.getX();
+				int y=e.getY();
+
+				System.out.println("总");
+				if(x>0&&x<800 && y>0&&y<600) {
+					System.out.println("网页");
+					try {
+						Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://localhost:8080/DGPWeb/loginServlet?usernme="+UserInfoDao.getUser().getAccount()+"&password="+UserInfoDao.getUser().getPass_word()+"");
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
+	}
 }

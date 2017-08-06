@@ -175,7 +175,6 @@ public class HistoryWindow extends JFrame {
 		 table.setBackground(tc);
 		 table.getTableHeader().setBackground(tc);
 		 table.setRowHeight(30);
-		 table.enable(false);
 		 JScrollPane JP= new JScrollPane(table);
 		 JP.setBounds(0, 32,this.getWidth(),this.getHeight()-32);
 		contentPanel.add(JP);

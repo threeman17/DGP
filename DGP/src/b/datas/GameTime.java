@@ -9,7 +9,7 @@ public class GameTime {
 	
 	public static int getGameTime() {
 		GamePlayHistoryService gphs=new GamePlayHistoryService();
-		int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子");
+		int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子")+1;
 		
 		switch(level) {
 		case 1:

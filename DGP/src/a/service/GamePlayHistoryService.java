@@ -47,7 +47,7 @@ public class GamePlayHistoryService {
 		
 		Object value =gphd.selrecord(account, game_name);
 		if(value==null) {
-			return 1;
+			return 0;
 		}
 		return Integer.parseInt(String.valueOf(value));
 	}

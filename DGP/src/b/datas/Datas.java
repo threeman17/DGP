@@ -87,7 +87,7 @@ public class Datas {
 		return datas;
 	}
 	public static int[][] getGameLevel() {
-		int nowGameLevel=new GamePlayHistoryService().selrecord(UserInfoDao.getUser().getAccount(), "推箱子");
+		int nowGameLevel=new GamePlayHistoryService().selrecord(UserInfoDao.getUser().getAccount(), "推箱子")+1;
 		switch (nowGameLevel) {
 		case 1:
 			return ergodic(Datas.pass1);

@@ -43,7 +43,7 @@ public class MainUI extends JFrame{
 	private boolean isDraging = false;
 	
 	GamePlayHistoryService gphs=new GamePlayHistoryService();
-	int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子");
+	int level=gphs.selrecord(UserInfoDao.getUser().getAccount(), "推箱子")+1;
 	public MainUI() {
 		backgroudInit();
 		heroInit();

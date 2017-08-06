@@ -145,7 +145,12 @@ public class HistoryWindow extends JFrame {
 		//将窗口的内容面板设置为自定义的面板
 		this.setContentPane(contentPanel);
 		this.setLocationRelativeTo(null);
-		 DefaultTableModel listRe=new DefaultTableModel();
+		 DefaultTableModel listRe=new DefaultTableModel(){
+	            public boolean isCellEditable(int row, int column)
+	            {
+	                return false;
+	            }
+	        }; 
 		 listRe.setColumnIdentifiers(his);
 		try {
 			list=GamePlayHistoryDao.selgameplayhistory(account);
@@ -170,6 +175,7 @@ public class HistoryWindow extends JFrame {
 		 table.setBackground(tc);
 		 table.getTableHeader().setBackground(tc);
 		 table.setRowHeight(30);
+		 table.enable(false);
 		 JScrollPane JP= new JScrollPane(table);
 		 JP.setBounds(0, 32,this.getWidth(),this.getHeight()-32);
 		contentPanel.add(JP);

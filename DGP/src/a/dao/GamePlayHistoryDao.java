@@ -21,7 +21,7 @@ public class GamePlayHistoryDao {
 		public static  List<GamePlayHistory> selgameplayhistory(String account) throws SQLException
 		{
 			QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
-			String sql="select * from gameplayhistory where account=?";
+			String sql="select * from gameplayhistory where account=? order by start_time desc";
 			List<GamePlayHistory> list=null;
 			list=qr.query(sql,new BeanListHandler<GamePlayHistory>(GamePlayHistory.class),account);
 			return list;

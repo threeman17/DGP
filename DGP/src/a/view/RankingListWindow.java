@@ -122,7 +122,12 @@ public class RankingListWindow extends JFrame {
 		//将窗口的内容面板设置为自定义的面板
 		this.setContentPane(contentPanel);
 		this.setLocationRelativeTo(null);
-		 DefaultTableModel listRe=new DefaultTableModel();
+		 DefaultTableModel listRe=new DefaultTableModel(){
+	            public boolean isCellEditable(int row, int column)
+	            {
+	                return false;
+	            }
+	        }; 
 		 listRe.setColumnIdentifiers(his);
 		try {
 			list=UserInfoDao.selrank();

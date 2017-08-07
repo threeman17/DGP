@@ -65,7 +65,7 @@ public class RankingListWindow extends JFrame {
 		close=new JButton(new ImageIcon("img/vclose.png"));
 		//关闭的颜色
 		Color te=new Color(240,255,255);
-		close.setBackground(gold);
+		close.setBackground(te);
 		//位于最大化按钮右侧
 		close.setBounds(titlePanel.getWidth()-32,0,32,titlePanel.getHeight());
 		//清除边框
@@ -113,7 +113,7 @@ public class RankingListWindow extends JFrame {
 		contentPanel.setBackground(tc);
 		contentPanel.setLayout(null);
 		//设置标题栏的颜色
-		titlePanel.setBackground(gold);
+		titlePanel.setBackground(te);
 		//将标题栏用到的组件添加到标题栏中
 		titlePanel.add(title);
 		titlePanel.add(close);
@@ -148,7 +148,7 @@ public class RankingListWindow extends JFrame {
 		 table.setBackground(te);
 		 table.setForeground(zi);
 		 table.getTableHeader().setBackground(te);
-		 table.getTableHeader().setForeground(gold);
+		 table.getTableHeader().setForeground(Color.black);
 		 JScrollPane JP= new JScrollPane(table);
 		 JP.setBounds(0, 32,this.getWidth(),this.getHeight()-32);
 		contentPanel.add(JP);

@@ -85,4 +85,7 @@ public class UserInfoDao {
 		public  static  UserInfo getUser() {
 			return user;
 		}
+		public  static  void setUser(UserInfo user) {
+			UserInfoDao.user=user;
+		}
 }

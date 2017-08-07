@@ -179,12 +179,13 @@ public class Register2 extends JFrame {
 					System.out.println(isUserExist);
 					
 					if(!isUserExist) {
-						MailService.register(emailstr, usernamestr);
+					
 						userService.register(accountstr, usernamestr, passwordstr,emailstr);
 						JOptionPane.showMessageDialog(getThis(), "恭喜！你已经注册成功，点击确认跳转登陆窗口", "提示", JOptionPane.PLAIN_MESSAGE);
 						close();
 						new Login2();
-						
+						//发送邮件
+						MailService.register(emailstr, usernamestr);
 					}else {
 						JOptionPane.showMessageDialog(getThis(), "用户名存在", "警告", JOptionPane.ERROR_MESSAGE);
 					}

@@ -2,12 +2,13 @@ package b.keyListener;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-
+import a.bean.UserInfo;
 import a.dao.UserInfoDao;
 import a.service.GameInfoService;
 import a.service.GamePlayHistoryService;
@@ -259,6 +260,18 @@ public class GameKeyListener extends KeyAdapter{
 						
 						new GamePlayHistoryService().insGamePlayHistory("推箱子", currentDate, GameTime, integral, 0, integral, 0,level+1 ,1);
 						uis.upduser(UserInfoDao.getUser().getAccount(), integral, integral);
+						
+						//更新当前User
+						
+						UserInfo user = null;
+						try {
+							user = new UserInfoDao().login(UserInfoDao.getUser().getAccount(), UserInfoDao.getUser().getPass_word());
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						UserInfoDao.setUser(user);
+						
 						int n = JOptionPane.showConfirmDialog(StartAPP.main, "在"+GameTime+"秒拿到了"+integral+"经验。需要继续下一关吗?", "恭喜"+uis.getUserNickName()+"获得了胜利",JOptionPane.YES_NO_OPTION);//i=0/1  
 						StartAPP.close();
 						if(n==0) {
